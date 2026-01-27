@@ -422,6 +422,15 @@ class NavbarScroll {
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
+    // ローディング画面を非表示にする
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        // ローディングアニメーション完了後に非表示
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 1500); // 1.5秒後にフェードアウト
+    }
+
     // パーティクルシステムを初期化
     const canvas = document.getElementById('particles');
     if (canvas) {
