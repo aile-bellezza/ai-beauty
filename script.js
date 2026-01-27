@@ -1,5 +1,5 @@
 /**
- * Aile Bellezza - Patreon Landing Page Scripts
+ * Aile Bellezza - AI Beauty Landing Page Scripts
  * パーティクルアニメーション、インタラクティブエフェクト、多言語対応
  */
 
@@ -14,12 +14,12 @@ const translations = {
         'nav.home': 'ホーム',
         'nav.gallery': 'ギャラリー',
         'nav.plans': 'プラン',
-        'nav.support': 'Patreonで支援',
+        'nav.support': 'サポート',
 
         // ヒーロー
         'hero.subtitle': '美しさの翼 — AIで描く幻想世界',
         'hero.description': '最先端のAI技術を駆使して、息をのむような美しいアートワークを創造しています。幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。',
-        'hero.btn_support': 'Patreonでサポート',
+        'hero.btn_support': 'サポートする',
         'hero.btn_gallery': '作品を見る',
         'hero.stat_posts': '投稿作品',
         'hero.stat_possibilities': '創造の可能性',
@@ -60,20 +60,20 @@ const translations = {
 
         // CTA
         'cta.title': '創作の旅に参加しませんか？',
-        'cta.description': 'Patreonでサポーターになって、限定コンテンツや舞台裏をお楽しみください。',
-        'cta.btn_support': '今すぐPatreonで支援する'
+        'cta.description': 'サポーターになって、限定コンテンツや舞台裏をお楽しみください。',
+        'cta.btn_support': '今すぐサポートする'
     },
     en: {
         // Navigation
         'nav.home': 'Home',
         'nav.gallery': 'Gallery',
         'nav.plans': 'Plans',
-        'nav.support': 'Support on Patreon',
+        'nav.support': 'Support',
 
         // Hero
         'hero.subtitle': 'Wings of Beauty — Fantasy Worlds by AI',
         'hero.description': 'Creating breathtaking artworks using cutting-edge AI technology. Delivering works that touch your heart with fantastical worldviews and delicate expression.',
-        'hero.btn_support': 'Support on Patreon',
+        'hero.btn_support': 'Support Now',
         'hero.btn_gallery': 'View Works',
         'hero.stat_posts': 'Posts',
         'hero.stat_possibilities': 'Creative Possibilities',
@@ -114,8 +114,8 @@ const translations = {
 
         // CTA
         'cta.title': 'Join the Creative Journey?',
-        'cta.description': 'Become a supporter on Patreon and enjoy exclusive content and behind-the-scenes access.',
-        'cta.btn_support': 'Support on Patreon Now'
+        'cta.description': 'Become a supporter and enjoy exclusive content and behind-the-scenes access.',
+        'cta.btn_support': 'Support Now'
     }
 };
 
