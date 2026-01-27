@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aile Bellezza | AI Image Creator</title>
+    <meta name="description" content="Aile Bellezza - AIを駆使した美しいイメージクリエイター。幻想的で魅力的なAIアート作品をご覧ください。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ローディング画面 -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">Aile Bellezza</span>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- パーティクル背景 -->
+    <canvas id="particles"></canvas>
+
+    <!-- ナビゲーション -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">Aile Bellezza</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" data-i18n="nav.home">ホーム</a></li>
+            <li><a href="#gallery" data-i18n="nav.gallery">ギャラリー</a></li>
+            <li><a href="#plans" data-i18n="nav.plans">プラン</a></li>
+            <li><a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn-nav"
+                    data-i18n="nav.support">Patreonで支援</a></li>
+        </ul>
+        <!-- 言語切り替えボタン -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ja">JP</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-menu-btn" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">AI Image Creator</div>
+            <h1 class="hero-title">
+                <span class="gradient-text">Aile Bellezza</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">美しさの翼 — AIで描く幻想世界</p>
+            <p class="hero-description" data-i18n="hero.description">
+                最先端のAI技術を駆使して、息をのむような美しいアートワークを創造しています。
+                幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。
+            </p>
+            <div class="hero-buttons">
+                <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-primary">
+                    <span class="btn-icon">✦</span>
+                    <span data-i18n="hero.btn_support">Patreonでサポート</span>
+                </a>
+                <a href="#gallery" class="btn btn-secondary" data-i18n="hero.btn_gallery">
+                    作品を見る
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">132+</span>
+                    <span class="stat-label" data-i18n="hero.stat_posts">投稿作品</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label" data-i18n="hero.stat_possibilities">創造の可能性</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <img src="images/hero-aile.png" alt="Aile Bellezza - AI美女" class="hero-image">
+                <div class="hero-image-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アバウトセクション -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About</span>
+                <h2 class="section-title" data-i18n="about.title">クリエイターについて</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card glass-card">
+                    <div class="about-icon">🎨</div>
+                    <h3 data-i18n="about.card1_title">AIアートの創造</h3>
+                    <p data-i18n="about.card1_desc">最新のAI技術とクリエイティブな感性を融合させ、唯一無二のアート作品を生み出しています。</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon">✨</div>
+                    <h3 data-i18n="about.card2_title">幻想的な世界観</h3>
+                    <p data-i18n="about.card2_desc">ファンタジー、サイバーパンク、エレガントなビジュアルを組み合わせた独自のスタイル。</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon">💎</div>
+                    <h3 data-i18n="about.card3_title">高品質なコンテンツ</h3>
+                    <p data-i18n="about.card3_desc">細部までこだわった高解像度作品を定期的に公開。限定コンテンツも多数ご用意。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ギャラリーセクション -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Gallery</span>
+                <h2 class="section-title" data-i18n="gallery.title">作品ギャラリー</h2>
+                <p class="section-subtitle" data-i18n="gallery.subtitle">AIが紡ぐ幻想的なビジュアル</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card" data-category="fantasy">
+                    <img src="images/gallery-1.png" alt="Sunset Paradise" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Sunset Paradise</span>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-category="elegant">
+                    <img src="images/gallery-2.png" alt="Cocktail Night" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Cocktail Night</span>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-category="summer">
+                    <img src="images/gallery-3.png" alt="Beach Beauty" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Beach Beauty</span>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-category="summer">
+                    <img src="images/gallery-4.png" alt="Ocean Dream" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Ocean Dream</span>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-category="elegant">
+                    <img src="images/gallery-5.png" alt="Silk Elegance" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Silk Elegance</span>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-category="night">
+                    <img src="images/gallery-6.png" alt="Night Office" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Night Office</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-cta">
+                <a href="https://www.patreon.com/cw/aile_bellezza/collections" target="_blank" class="btn btn-primary"
+                    data-i18n="gallery.btn_view_all">
+                    すべての作品を見る →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- プランセクション -->
+    <section id="plans" class="plans">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Membership</span>
+                <h2 class="section-title" data-i18n="plans.title">サポータープラン</h2>
+                <p class="section-subtitle" data-i18n="plans.subtitle">あなたのサポートが創作の力になります</p>
+            </div>
+            <div class="plans-grid">
+                <div class="plan-card glass-card">
+                    <div class="plan-header">
+                        <span class="plan-badge">Starter</span>
+                        <h3 class="plan-name" data-i18n="plans.fan_name">ファン</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$3</span>
+                            <span class="price-period" data-i18n="plans.per_month">/月</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li data-i18n="plans.fan_f1">✓ 全投稿へのアクセス</li>
+                        <li data-i18n="plans.fan_f2">✓ コミュニティ参加</li>
+                        <li data-i18n="plans.fan_f3">✓ 新作のいち早い閲覧</li>
+                    </ul>
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-outline"
+                        data-i18n="plans.btn_choose">
+                        このプランを選ぶ
+                    </a>
+                </div>
+                <div class="plan-card glass-card featured">
+                    <div class="plan-popular" data-i18n="plans.popular">人気</div>
+                    <div class="plan-header">
+                        <span class="plan-badge">Pro</span>
+                        <h3 class="plan-name" data-i18n="plans.supporter_name">サポーター</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$7</span>
+                            <span class="price-period" data-i18n="plans.per_month">/月</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li data-i18n="plans.sup_f1">✓ ファンプランの全特典</li>
+                        <li data-i18n="plans.sup_f2">✓ 高解像度ダウンロード</li>
+                        <li data-i18n="plans.sup_f3">✓ 限定コレクション</li>
+                        <li data-i18n="plans.sup_f4">✓ 制作過程の公開</li>
+                    </ul>
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-primary"
+                        data-i18n="plans.btn_choose">
+                        このプランを選ぶ
+                    </a>
+                </div>
+                <div class="plan-card glass-card">
+                    <div class="plan-header">
+                        <span class="plan-badge">Premium</span>
+                        <h3 class="plan-name">VIP</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$15</span>
+                            <span class="price-period" data-i18n="plans.per_month">/月</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li data-i18n="plans.vip_f1">✓ すべての特典</li>
+                        <li data-i18n="plans.vip_f2">✓ VIP限定コンテンツ</li>
+                        <li data-i18n="plans.vip_f3">✓ リクエスト優先</li>
+                        <li data-i18n="plans.vip_f4">✓ 直接メッセージ</li>
+                    </ul>
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-outline"
+                        data-i18n="plans.btn_choose">
+                        このプランを選ぶ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content glass-card">
+                <h2 class="cta-title" data-i18n="cta.title">創作の旅に参加しませんか？</h2>
+                <p class="cta-description" data-i18n="cta.description">
+                    Patreonでサポーターになって、限定コンテンツや舞台裏をお楽しみください。
+                </p>
+                <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-large">
+                    <span class="btn-icon">✦</span>
+                    <span data-i18n="cta.btn_support">今すぐPatreonで支援する</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-text">Aile Bellezza</span>
+                    <p>AI Image Creator</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank">Patreon</a>
+                    <a href="https://twitter.com/aile_bellezza" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aile Bellezza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
