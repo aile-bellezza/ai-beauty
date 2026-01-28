@@ -352,27 +352,57 @@ class MobileMenu {
         this.nav = document.querySelector('.nav-links');
         this.isOpen = false;
 
-        if (this.btn) {
-            this.btn.addEventListener('click', () => this.toggle());
+        if (this.btn && this.nav) {
+            // クリックイベント
+            this.btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggle();
+            });
+
+            // タッチイベント（モバイル用）
+            this.btn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggle();
+            });
+
+            // ナビリンクをクリックしたらメニューを閉じる
+            this.nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (this.isOpen) {
+                        this.close();
+                    }
+                });
+            });
+
+            // 初期状態を設定（CSSクラスを使用）
+            this.nav.classList.add('mobile-menu-nav');
         }
     }
 
     toggle() {
-        this.isOpen = !this.isOpen;
-
         if (this.isOpen) {
-            this.nav.style.display = 'flex';
-            this.nav.style.flexDirection = 'column';
-            this.nav.style.position = 'absolute';
-            this.nav.style.top = '100%';
-            this.nav.style.left = '0';
-            this.nav.style.right = '0';
-            this.nav.style.background = 'rgba(10, 10, 15, 0.95)';
-            this.nav.style.padding = '1rem';
-            this.nav.style.backdropFilter = 'blur(20px)';
+            this.close();
         } else {
-            this.nav.style.display = 'none';
+            this.open();
         }
+    }
+
+    open() {
+        this.isOpen = true;
+        this.nav.classList.add('mobile-open');
+        this.btn.classList.add('active');
+        this.btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    close() {
+        this.isOpen = false;
+        this.nav.classList.remove('mobile-open');
+        this.btn.classList.remove('active');
+        this.btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
     }
 }
 
@@ -380,7 +410,8 @@ class MobileMenu {
 class SmoothScroll {
     constructor() {
         document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
+            // クリックとタッチの両方に対応
+            const handleNavigation = (e) => {
                 const href = link.getAttribute('href');
                 if (href === '#') return;
 
@@ -388,11 +419,31 @@ class SmoothScroll {
                 const target = document.querySelector(href);
 
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    // モバイルメニューが開いている場合は閉じる
+                    if (window.mobileMenu && window.mobileMenu.isOpen) {
+                        window.mobileMenu.close();
+                    }
+
+                    // 少し遅延させてからスクロール（メニューが閉じるのを待つ）
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
                 }
+            };
+
+            link.addEventListener('click', handleNavigation);
+
+            // モバイル用タッチイベント
+            link.addEventListener('touchend', (e) => {
+                // 外部リンクはスキップ
+                const href = link.getAttribute('href');
+                if (!href.startsWith('#')) return;
+
+                e.preventDefault();
+                handleNavigation(e);
             });
         });
     }
@@ -420,6 +471,99 @@ class NavbarScroll {
     }
 }
 
+// アクティブナビゲーション（現在のセクションをハイライト）
+class ActiveNav {
+    constructor() {
+        this.sections = document.querySelectorAll('section[id]');
+        this.navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        // スクロールイベントでアクティブ状態を更新
+        window.addEventListener('scroll', () => this.updateActiveLink());
+
+        // 初期状態を設定
+        this.updateActiveLink();
+    }
+
+    updateActiveLink() {
+        const scrollPosition = window.scrollY + 150; // ヘッダーの高さを考慮
+
+        this.sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                // すべてのリンクからアクティブクラスを削除
+                this.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // 現在のセクションに対応するリンクをアクティブに
+                const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }
+}
+
+// コンテンツローダー（JSONから読み込み）
+class ContentLoader {
+    constructor() {
+        this.loadContent();
+    }
+
+    async loadContent() {
+        try {
+            const response = await fetch('data/content.json');
+            const data = await response.json();
+
+            // 投稿数を更新
+            this.updateStats(data.stats);
+
+            // ギャラリーを更新
+            this.updateGallery(data.gallery);
+
+            console.log('📦 コンテンツをJSONから読み込みました');
+        } catch (error) {
+            console.log('ℹ️ content.jsonが見つかりません。デフォルト表示を使用します。');
+        }
+    }
+
+    updateStats(stats) {
+        if (!stats) return;
+
+        // 投稿数を更新
+        const postNumber = document.querySelector('.stat-number');
+        if (postNumber && stats.posts) {
+            postNumber.textContent = stats.posts;
+        }
+    }
+
+    updateGallery(gallery) {
+        if (!gallery || gallery.length === 0) return;
+
+        const galleryGrid = document.querySelector('.gallery-grid');
+        if (!galleryGrid) return;
+
+        // ギャラリーをクリアして再構築
+        galleryGrid.innerHTML = '';
+
+        gallery.forEach(item => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item glass-card';
+            galleryItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">${item.title}</span>
+                </div>
+            `;
+            galleryGrid.appendChild(galleryItem);
+        });
+    }
+}
+
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
     // ローディング画面を非表示にする
@@ -439,9 +583,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 各コンポーネントを初期化
     new ScrollAnimator();
-    new MobileMenu();
+    window.mobileMenu = new MobileMenu(); // グローバルに保存
     new SmoothScroll();
     new NavbarScroll();
+    new ActiveNav(); // アクティブナビゲーション
+    new ContentLoader(); // JSONからコンテンツを読み込み
     new I18n(); // 多言語対応システム
 
     console.log('✨ Aile Bellezza Landing Page Initialized');

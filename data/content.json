@@ -1,0 +1,31 @@
+{
+  "stats": {
+    "posts": "132+"
+  },
+  "gallery": [
+    {
+      "image": "images/20260121_1501_image.png",
+      "title": "Sunset Paradise"
+    },
+    {
+      "image": "images/gallery-2.png",
+      "title": "Cocktail Night"
+    },
+    {
+      "image": "images/gallery-3.png",
+      "title": "Beach Beauty"
+    },
+    {
+      "image": "images/gallery-4.png",
+      "title": "Ocean Dream"
+    },
+    {
+      "image": "images/gallery-5.png",
+      "title": "Silk Elegance"
+    },
+    {
+      "image": "images/gallery-6.png",
+      "title": "Night Office"
+    }
+  ]
+}
