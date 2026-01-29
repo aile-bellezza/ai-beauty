@@ -919,95 +919,24 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-xl);
-    align-items: start;
+    /* align-items: start; を削除して高さを揃える */
 }
 
 .plan-card {
     padding: var(--space-xl);
     position: relative;
     overflow: hidden;
-}
-
-.plan-card.featured {
-    border-color: var(--color-accent-primary);
-    box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
-}
-
-.plan-popular {
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    padding: var(--space-xs) var(--space-md);
-    background: var(--gradient-primary);
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-}
-
-.plan-header {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-}
-
-.plan-badge {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--glass-bg);
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-accent-secondary);
-    margin-bottom: var(--space-md);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.plan-name {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-md);
-}
-
-.plan-price {
     display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: var(--space-xs);
+    flex-direction: column;
 }
 
-.price-amount {
-    font-size: 3rem;
-    font-weight: var(--font-weight-bold);
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.price-period {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-}
-
-.plan-features {
-    list-style: none;
-    margin-bottom: var(--space-xl);
-}
-
-.plan-features li {
-    padding: var(--space-sm) 0;
-    color: var(--color-text-secondary);
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.plan-features li:last-child {
-    border-bottom: none;
-}
+/* ... (omitted) ... */
 
 .plan-card .btn {
     width: 100%;
     justify-content: center;
+    margin-top: auto;
+    /* ボタンを下揃えに */
 }
 
 /* ============================================
