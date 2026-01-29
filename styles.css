@@ -440,6 +440,23 @@ body {
     box-shadow: var(--glass-shadow);
 }
 
+/* 動画コンテナ */
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* 各スライド */
 .hero-slide {
     position: absolute;
