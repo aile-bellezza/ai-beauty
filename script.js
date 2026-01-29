@@ -607,8 +607,8 @@ class ContentLoader {
             // 投稿数を更新
             this.updateStats(data.stats);
 
-            // ギャラリーを更新
-            this.updateGallery(data.gallery);
+            // ギャラリーを更新 (JSONにカテゴリ情報がないため、HTMLの記述を優先)
+            // this.updateGallery(data.gallery);
 
             console.log('📦 コンテンツをJSONから読み込みました');
         } catch (error) {
@@ -894,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new NavbarScroll();
     new ActiveNav(); // アクティブナビゲーション
-    new ContentLoader(); // JSONからコンテンツを読み込み
+    // new ContentLoader(); // JSONからコンテンツを読み込み (HTMLの静的データを優先するため無効化)
     new I18n(); // 多言語対応システム
     new HeroSlider(); // ヒーロースライドショー
     new GalleryFilter(); // ギャラリーフィルター
