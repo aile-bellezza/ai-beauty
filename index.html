@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=11">
 </head>
 
 <body>
@@ -68,7 +68,7 @@
                 幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。
             </p>
             <div class="hero-buttons">
-                <a href="https://www.patreon.com/c/aile_bellezza" target="_blank" class="btn btn-primary">
+                <a href="https://www.patreon.com/c/aile_bellezza" target="_blank" class="btn btn-primary btn-glow">
                     <span class="btn-icon">✦</span>
                     <span data-i18n="hero.btn_support">サポートする</span>
                 </a>
@@ -89,10 +89,27 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="hero-image-container">
-                <img src="images/hero-aile.png" alt="Aile Bellezza - AI美女" class="hero-image">
-                <div class="hero-image-glow"></div>
+            <div class="hero-slideshow">
+                <div class="hero-slide active">
+                    <img src="images/hero-aile.png" alt="Aile Bellezza - AI美女" class="hero-image">
+                </div>
+                <div class="hero-slide">
+                    <img src="images/gallery-1.png" alt="Sunset Paradise" class="hero-image">
+                </div>
+                <div class="hero-slide">
+                    <img src="images/gallery-2.png" alt="Cocktail Night" class="hero-image">
+                </div>
+                <div class="hero-slide">
+                    <img src="images/gallery-5.png" alt="Silk Elegance" class="hero-image">
+                </div>
             </div>
+            <div class="hero-slide-dots">
+                <button class="slide-dot active" data-slide="0" aria-label="スライド1"></button>
+                <button class="slide-dot" data-slide="1" aria-label="スライド2"></button>
+                <button class="slide-dot" data-slide="2" aria-label="スライド3"></button>
+                <button class="slide-dot" data-slide="3" aria-label="スライド4"></button>
+            </div>
+            <div class="hero-image-glow"></div>
         </div>
     </section>
 
@@ -131,52 +148,330 @@
                 <h2 class="section-title" data-i18n="gallery.title">作品ギャラリー</h2>
                 <p class="section-subtitle" data-i18n="gallery.subtitle">AIが紡ぐ幻想的なビジュアル</p>
             </div>
+            <!-- タグフィルター -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="elegant">Elegant</button>
+                <button class="filter-btn" data-filter="summer">Summer</button>
+                <button class="filter-btn" data-filter="night">Night</button>
+            </div>
             <div class="gallery-grid">
-                <div class="gallery-item glass-card" data-category="fantasy">
-                    <img src="images/gallery-1.png" alt="Sunset Paradise" class="gallery-image">
+                <!-- 1. Summer - サンセット -->
+                <div class="gallery-item glass-card" data-category="summer">
+                    <img src="images/gallery-1.png" alt="Sunset Paradise" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Sunset Paradise</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
-                <div class="gallery-item glass-card" data-category="elegant">
-                    <img src="images/gallery-2.png" alt="Cocktail Night" class="gallery-image">
+                <!-- 2. Night - パーティー -->
+                <div class="gallery-item glass-card" data-category="night">
+                    <img src="images/gallery-2.png" alt="Cocktail Night" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Cocktail Night</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
+                <!-- 3. Summer - ビーチ -->
                 <div class="gallery-item glass-card" data-category="summer">
-                    <img src="images/gallery-3.png" alt="Beach Beauty" class="gallery-image">
+                    <img src="images/gallery-3.png" alt="Beach Beauty" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Beach Beauty</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
+                <!-- 4. Summer - ビーチ -->
                 <div class="gallery-item glass-card" data-category="summer">
-                    <img src="images/gallery-4.png" alt="Ocean Dream" class="gallery-image">
+                    <img src="images/gallery-4.png" alt="Ocean Dream" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Ocean Dream</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
+                <!-- 5. Elegant - シルクドレス -->
                 <div class="gallery-item glass-card" data-category="elegant">
-                    <img src="images/gallery-5.png" alt="Silk Elegance" class="gallery-image">
+                    <img src="images/gallery-5.png" alt="Silk Elegance" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Silk Elegance</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
+                <!-- 6. Night - オフィス -->
                 <div class="gallery-item glass-card" data-category="night">
-                    <img src="images/gallery-6.png" alt="Night Office" class="gallery-image">
+                    <img src="images/gallery-6.png" alt="Night Office" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Night Office</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 7. Night - ムーンライト -->
+                <div class="gallery-item glass-card" data-category="night">
+                    <img src="images/gallery-7.png" alt="Moonlight Dream" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Moonlight Dream</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 8. Elegant - 紫サテン -->
+                <div class="gallery-item glass-card" data-category="elegant">
+                    <img src="images/gallery-9.png" alt="Purple Satin" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Purple Satin</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 9. Night - ネオン -->
+                <div class="gallery-item glass-card" data-category="night">
+                    <img src="images/gallery-10.png" alt="Neon Lights" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Neon Lights</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- ここから隠す (10枚目以降) -->
+                <!-- 10. Night - 夜景 -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-11.png" alt="City Night" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">City Night</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 11. Elegant - サテン -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-12.png" alt="Satin Dreams" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Satin Dreams</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 12. Summer - ゴールドビキニ -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-13.png" alt="Golden Beach" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Golden Beach</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 13. Summer - ビーチ -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-14.png" alt="Crystal Waters" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Crystal Waters</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 14. Summer - ハンモック -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-15.png" alt="Tropical Hammock" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Tropical Hammock</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 15. Summer - ビーチタオル -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-16.png" alt="Beach Vibes" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Beach Vibes</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 16. Summer - 水しぶき -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-17.png" alt="Ocean Splash" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Ocean Splash</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 17. Night - 夜景レース -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-18.png" alt="Night Lace" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Night Lace</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 18. Night - ムーンライト -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-19.png" alt="Moonlit Silk" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Moonlit Silk</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 19. Night - ネオン -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-20.png" alt="Neon Dreams" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Neon Dreams</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 20. Elegant - グリッタードレス -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-21.png" alt="Glitter Dress" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Glitter Dress</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 21. Elegant - カジュアル -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-22.png" alt="Casual Chic" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Casual Chic</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 22. Night - オフィス夜 -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-23.png" alt="Office Nights" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Office Nights</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 23. Summer - ビーチ -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-24.png" alt="Paradise Bay" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Paradise Bay</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 24. Summer - サンセット -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-25.png" alt="Sunset Glow" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Sunset Glow</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 25. Summer - ゴールドサンセット -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-26.png" alt="Golden Hour" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Golden Hour</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 26. Summer - トロピカル -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
+                    <img src="images/gallery-27.png" alt="Tropical Bloom" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Tropical Bloom</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 27. Elegant - ホワイトランジェリー -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-28.png" alt="White Lace" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">White Lace</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 28. Night - シルクドレス -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-29.png" alt="Silk Night" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Silk Night</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 29. Elegant - 階段 -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-30.png" alt="Stairway Grace" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Stairway Grace</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 30. Night - 月夜ビーチ -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-31.png" alt="Midnight Beach" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Midnight Beach</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 31. Night - シルバービキニ月夜 -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-32.png" alt="Silver Moon" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Silver Moon</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 32. Night - 月夜の海 -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-33.png" alt="Moonlit Waters" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Moonlit Waters</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 33. Elegant - ワインレッド -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/gallery-34.png" alt="Wine Red" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Wine Red</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 34. Night - ブラックレース -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-35.png" alt="Black Lace" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Black Lace</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 35. Night - ミラー -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                    <img src="images/gallery-36.png" alt="Mirror Night" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Mirror Night</span>
+                        <span class="gallery-zoom">🔍</span>
+                    </div>
+                </div>
+                <!-- 36. Elegant - ヒーローポートレート -->
+                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                    <img src="images/hero-aile.png" alt="Aile Portrait" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Aile Portrait</span>
+                        <span class="gallery-zoom">🔍</span>
                     </div>
                 </div>
             </div>
+            <!-- もっと見るボタン -->
+            <div class="gallery-show-more">
+                <button class="btn btn-secondary" id="show-more-btn">
+                    <span>もっと見る</span>
+                    <span class="btn-icon">↓</span>
+                </button>
+            </div>
             <div class="gallery-cta">
-                <a href="https://www.patreon.com/c/aile_bellezza/collections" target="_blank" class="btn btn-primary"
-                    data-i18n="gallery.btn_view_all">
+                <a href="https://www.patreon.com/c/aile_bellezza/collections" target="_blank"
+                    class="btn btn-primary btn-glow" data-i18n="gallery.btn_view_all">
                     すべての作品を見る →
                 </a>
             </div>
         </div>
     </section>
+
+    <!-- ライトボックスモーダル -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="閉じる">&times;</button>
+        <button class="lightbox-prev" aria-label="前の画像">❮</button>
+        <button class="lightbox-next" aria-label="次の画像">❯</button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
 
     <!-- プランセクション -->
     <section id="plans" class="plans">
@@ -277,7 +572,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="https://www.patreon.com/c/aile_bellezza" target="_blank">Support</a>
-                    <a href="https://twitter.com/ai_beauty" target="_blank">Twitter</a>
+                    <a href="https://www.instagram.com/aile_bellezza/?locale=ja_JP" target="_blank">Instagram</a>
+                    <a href="https://www.threads.net/@take_ai_le?hl=ja" target="_blank">Threads</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -286,7 +582,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=11"></script>
 </body>
 
 </html>
