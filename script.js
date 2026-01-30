@@ -593,6 +593,150 @@ class ActiveNav {
     }
 }
 
+// ============================================
+// ショッピングカートシステム
+// ============================================
+class CartSystem {
+    constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        this.cartDrawer = document.querySelector('.cart-drawer');
+        this.cartOverlay = document.querySelector('.cart-overlay');
+        this.cartItemsContainer = document.querySelector('.cart-items');
+        this.totalElement = document.querySelector('.total-amount');
+        this.badgeElement = document.querySelector('.cart-badge');
+        this.isOpen = false;
+
+        this.init();
+    }
+
+    init() {
+        // カートボタン（開閉）
+        document.querySelector('.cart-btn').addEventListener('click', () => this.toggle());
+        document.querySelector('.cart-close').addEventListener('click', () => this.close());
+        this.cartOverlay.addEventListener('click', () => this.close());
+
+        // 「買い物を続ける」ボタン
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('continue-shopping')) {
+                this.close();
+            }
+        });
+
+        // 初期表示更新
+        this.updateUI();
+
+        // カート追加イベントのリスナー（動的要素対応のためdocumentに委譲）
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.add-to-cart-btn');
+            if (btn) {
+                const product = {
+                    id: btn.dataset.id,
+                    name: btn.dataset.name,
+                    price: parseInt(btn.dataset.price),
+                    image: btn.dataset.image
+                };
+                this.addItem(product);
+                // フィードバック（ボタンのアニメーションなど）
+                this.animateButton(btn);
+            }
+        });
+
+        // 削除ボタンイベント
+        this.cartItemsContainer.addEventListener('click', (e) => {
+            if (e.target.closest('.remove-item')) {
+                const id = e.target.closest('.remove-item').dataset.id;
+                this.removeItem(id);
+            }
+        });
+    }
+
+    toggle() {
+        if (this.isOpen) this.close();
+        else this.open();
+    }
+
+    open() {
+        this.cartDrawer.classList.add('active');
+        this.cartOverlay.classList.add('active');
+        this.isOpen = true;
+        document.body.style.overflow = 'hidden';
+    }
+
+    close() {
+        this.cartDrawer.classList.remove('active');
+        this.cartOverlay.classList.remove('active');
+        this.isOpen = false;
+        document.body.style.overflow = '';
+    }
+
+    addItem(product) {
+        // すでに存在するかチェック
+        const existingItem = this.cart.find(item => item.id === product.id);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            this.cart.push({ ...product, quantity: 1 });
+        }
+        this.save();
+        this.updateUI();
+        this.open(); // 追加したらカートを開く
+    }
+
+    removeItem(id) {
+        this.cart = this.cart.filter(item => item.id !== id);
+        this.save();
+        this.updateUI();
+    }
+
+    save() {
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+
+    updateUI() {
+        // バッジ更新
+        const totalCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+        this.badgeElement.textContent = totalCount;
+        this.badgeElement.classList.toggle('visible', totalCount > 0);
+
+        // カート内アイテム描画
+        if (this.cart.length === 0) {
+            this.cartItemsContainer.innerHTML = `
+                <div class="empty-cart">
+                    <p>カートは空です</p>
+                    <button class="btn btn-secondary continue-shopping">買い物を続ける</button>
+                </div>
+            `;
+            this.totalElement.textContent = '$0';
+            return;
+        }
+
+        this.cartItemsContainer.innerHTML = this.cart.map(item => `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h4 class="cart-item-title">${item.name}</h4>
+                    <div class="cart-item-price">$${item.price} x ${item.quantity}</div>
+                </div>
+                <button class="remove-item" data-id="${item.id}" aria-label="削除">&times;</button>
+            </div>
+        `).join('');
+
+        // 合計金額計算
+        const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        this.totalElement.textContent = `$${total}`;
+    }
+
+    animateButton(btn) {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✓ Added';
+        btn.classList.add('added');
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.remove('added');
+        }, 2000);
+    }
+}
+
 // コンテンツローダー（JSONから読み込み）
 class ContentLoader {
     constructor() {
@@ -899,6 +1043,77 @@ document.addEventListener('DOMContentLoaded', () => {
     new HeroSlider(); // ヒーロースライドショー
     new GalleryFilter(); // ギャラリーフィルター
     new Lightbox(); // ライトボックス
+    new CartSystem(); // カートシステム
+    new NewsletterForm(); // ニュースレターフォーム
 
     console.log('✨ Aile Bellezza Landing Page Initialized');
 });
+
+// ============================================
+// ニュースレターフォーム
+// ============================================
+class NewsletterForm {
+    constructor() {
+        this.form = document.getElementById('newsletter-form');
+        if (this.form) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this.form);
+        const submitBtn = this.form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // 送信中の表示
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(this.form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // 成功時
+                this.showSuccess();
+                this.form.reset();
+            } else {
+                // エラー時
+                this.showError();
+            }
+        } catch (error) {
+            console.error('Newsletter submission error:', error);
+            this.showError();
+        }
+
+        // ボタンをリセット
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+
+    showSuccess() {
+        const successMsg = document.querySelector('.newsletter-success');
+        if (successMsg) {
+            successMsg.style.display = 'block';
+            // 5秒後に非表示
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+    }
+
+    showError() {
+        alert('送信に失敗しました。もう一度お試しください。');
+    }
+}

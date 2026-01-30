@@ -6,12 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aile Bellezza | AI Image Creator</title>
     <meta name="description" content="Aile Bellezza - AIを駆使した美しいイメージクリエイター。幻想的で魅力的なAIアート作品をご覧ください。">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aile-bellezza.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aile-bellezza.com/">
+    <meta property="og:title" content="Aile Bellezza | AI Image Creator">
+    <meta property="og:description" content="AIを駆使した美しいイメージクリエイター。幻想的で魅力的なAIアート作品をご覧ください。">
+    <meta property="og:image" content="https://aile-bellezza.com/images/hero-aile.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://aile-bellezza.com/">
+    <meta name="twitter:title" content="Aile Bellezza | AI Image Creator">
+    <meta name="twitter:description" content="AIを駆使した美しいイメージクリエイター。幻想的で魅力的なAIアート作品をご覧ください。">
+    <meta name="twitter:image" content="https://aile-bellezza.com/images/hero-aile.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Aile Bellezza",
+        "url": "https://aile-bellezza.com/",
+        "description": "AIを駆使した美しいイメージクリエイター",
+        "creator": {
+            "@type": "Person",
+            "name": "Aile Bellezza"
+        }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
 </head>
 
 <body>
@@ -48,6 +82,10 @@
             <span class="lang-divider">|</span>
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
+        <button class="cart-btn" aria-label="カートを開く">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-badge">0</span>
+        </button>
         <button class="mobile-menu-btn" aria-label="メニューを開く">
             <span></span>
             <span></span>
@@ -548,6 +586,29 @@
         </div>
     </section>
 
+    <!-- ニュースレターセクション -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content glass-card">
+                <div class="newsletter-text">
+                    <h3 class="newsletter-title">✦ Stay Updated</h3>
+                    <p class="newsletter-description">最新の作品情報や限定コンテンツをお届けします</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID"
+                    method="POST">
+                    <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
+                    <button type="submit" class="btn btn-primary newsletter-btn">
+                        <span>Subscribe</span>
+                    </button>
+                </form>
+                <p class="newsletter-success" style="display: none; color: #4ade80; margin-top: 1rem;">
+                    ✓ 登録ありがとうございます！
+                </p>
+            </div>
+        </div>
+    </section>
+
+
     <!-- フッター -->
     <footer class="footer">
         <div class="container">
@@ -567,6 +628,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- カートドロワー -->
+    <div class="cart-overlay"></div>
+    <div class="cart-drawer">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" aria-label="閉じる">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- カートアイテムはここに動的に追加されます -->
+            <div class="empty-cart">
+                <p>カートは空です</p>
+                <button class="btn btn-secondary continue-shopping">買い物を続ける</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Box Total:</span>
+                <span class="total-amount">$0</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">Checkout</button>
+        </div>
+    </div>
 
     <script src="script.js?v=11"></script>
 </body>

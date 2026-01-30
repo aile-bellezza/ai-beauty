@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Aile Bellezza</title>
+    <meta name="description" content="Aile Bellezza - Digital Art Collection. 高品質なAIアート作品をお届けします。">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aile-bellezza.com/product.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://aile-bellezza.com/product.html">
+    <meta property="og:title" content="Digital Art Collection | Aile Bellezza">
+    <meta property="og:description" content="高品質なAIアート作品をお届けします。">
+    <meta property="og:image" content="https://aile-bellezza.com/images/hero-aile.png">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://aile-bellezza.com/product.html">
+    <meta name="twitter:title" content="Digital Art Collection | Aile Bellezza">
+    <meta name="twitter:description" content="高品質なAIアート作品をお届けします。">
+    <meta name="twitter:image" content="https://aile-bellezza.com/images/hero-aile.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=12">
+</head>
+
+<body>
+    <!-- ローディング画面 -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">Aile Bellezza</span>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- パーティクル背景 -->
+    <canvas id="particles"></canvas>
+
+    <!-- ナビゲーション -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html" class="brand-link">
+                <span class="brand-text">Aile Bellezza</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home" data-i18n="nav.home">ホーム</a></li>
+            <li><a href="index.html#gallery" data-i18n="nav.gallery">ギャラリー</a></li>
+            <li><a href="index.html#plans" data-i18n="nav.plans">プラン</a></li>
+        </ul>
+        <!-- 言語切り替えボタン -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ja">JP</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="cart-btn" aria-label="カートを開く">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-badge">0</span>
+        </button>
+        <button class="mobile-menu-btn" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- 商品詳細セクション -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-grid">
+                <!-- 商品画像 -->
+                <div class="product-image-container glass-card">
+                    <img id="product-image" src="" alt="Product Image" class="product-main-image">
+                </div>
+
+                <!-- 商品情報 -->
+                <div class="product-info glass-card">
+                    <div class="product-header">
+                        <span class="product-category">Digital Art</span>
+                        <h1 id="product-title" class="product-title">Loading...</h1>
+                        <div id="product-price" class="product-price">$0</div>
+                    </div>
+
+                    <div class="product-description">
+                        <p id="product-desc">Please wait while loading product details...</p>
+                    </div>
+
+                    <div class="product-actions">
+                        <button id="add-to-cart-btn" class="btn btn-primary btn-large add-to-cart-btn">
+                            <span class="btn-text">Add to Cart</span>
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">✓</span>
+                            <span>High Resolution Download</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">✓</span>
+                            <span>Commercial License Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-text">Aile Bellezza</span>
+                    <p>AI Image Creator</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.patreon.com/c/aile_bellezza" target="_blank">Support</a>
+                    <a href="https://www.instagram.com/aile_bellezza/?locale=ja_JP" target="_blank">Instagram</a>
+                    <a href="https://www.threads.net/@take_ai_le?hl=ja" target="_blank">Threads</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aile Bellezza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- カートドロワー -->
+    <div class="cart-overlay"></div>
+    <div class="cart-drawer">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" aria-label="閉じる">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- カートアイテムはここに動的に追加されます -->
+            <div class="empty-cart">
+                <p>カートは空です</p>
+                <button class="btn btn-secondary continue-shopping">買い物を続ける</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Box Total:</span>
+                <span class="total-amount">$0</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=12"></script>
+    <script>
+        // 商品詳細ページの簡易ロジック
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 'prod_1'; // デフォルトID
+
+            try {
+                const response = await fetch('data/content.json');
+                const data = await response.json();
+                const product = data.products.find(p => p.id === productId);
+
+                if (product) {
+                    document.getElementById('product-image').src = product.image;
+                    document.getElementById('product-title').textContent = product.name;
+                    document.getElementById('product-price').textContent = `$${product.price}`;
+                    document.getElementById('product-desc').textContent = product.description;
+
+                    // カートボタンにデータをセット
+                    const btn = document.getElementById('add-to-cart-btn');
+                    btn.dataset.id = product.id;
+                    btn.dataset.name = product.name;
+                    btn.dataset.price = product.price;
+                    btn.dataset.image = product.image;
+                }
+            } catch (error) {
+                console.error('Failed to load product:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>
