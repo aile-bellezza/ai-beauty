@@ -865,6 +865,64 @@ section {
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* ギャラリーアクション（シェアボタン等） */
+.gallery-actions {
+    position: absolute;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    display: flex;
+    gap: var(--space-sm);
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+}
+
+.gallery-item:hover .gallery-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(4px);
+    padding: 0;
+}
+
+.gallery-share-btn:hover {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* モバイル対応: 常時表示に近い形またはタッチしやすいサイズ */
+@media (max-width: 768px) {
+    .gallery-actions {
+        opacity: 1;
+        transform: translateY(0);
+        bottom: var(--space-md);
+        right: var(--space-md);
+    }
+
+    .gallery-share-btn {
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.4);
+        /* 背景を濃くして視認性確保 */
+    }
+}
+
 /* gallery-hidden: デフォルトで隠す（9枚以降） */
 .gallery-item.gallery-hidden {
     display: none;

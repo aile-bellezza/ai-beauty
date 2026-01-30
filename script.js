@@ -914,6 +914,82 @@ class GalleryFilter {
 }
 
 // ============================================
+// ギャラリーシェア（カード上のボタン）
+// ============================================
+class GalleryShare {
+    constructor() {
+        this.items = document.querySelectorAll('.gallery-item');
+        if (this.items.length > 0) {
+            this.init();
+        }
+    }
+
+    init() {
+        // 各アイテムにシェアボタンを注入
+        this.items.forEach(item => {
+            const overlay = item.querySelector('.gallery-overlay');
+            if (overlay) {
+                this.injectShareButtons(overlay, item);
+            }
+        });
+
+        // イベントリスナー（委譲）
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.gallery-share-btn');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation(); // Lightboxが開かないようにする
+                this.handleShare(btn);
+            }
+        });
+    }
+
+    injectShareButtons(overlay, item) {
+        // 既存のボタンがあれば追加しない
+        if (overlay.querySelector('.gallery-actions')) return;
+
+        const title = item.querySelector('.gallery-title')?.textContent || '';
+        // 画像パス解決（相対パスを絶対パスにするか、そのまま使うか）
+        // ここではOGP用ではなく、テキストシェアの一部として扱うため、ページURLをメインにする
+
+        const actionsHtml = `
+            <div class="gallery-actions">
+                <button class="gallery-share-btn" data-platform="twitter" aria-label="Share on X" data-title="${title}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </button>
+                <button class="gallery-share-btn" data-platform="line" aria-label="Share on LINE" data-title="${title}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016a.63.63 0 0 1-.63.629.618.618 0 0 1-.51-.262l-2.437-3.317v2.95a.63.63 0 0 1-.63.629.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.2 0 .385.096.51.258l2.437 3.321V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.771zM8.96 12.879a.63.63 0 0 1-.63.629.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.771zm-2.42.629H4.154a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+                    </svg>
+                </button>
+            </div>
+        `;
+
+        overlay.insertAdjacentHTML('beforeend', actionsHtml);
+    }
+
+    handleShare(btn) {
+        const platform = btn.dataset.platform;
+        const title = btn.dataset.title || '';
+        const pageUrl = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(`${title} | Aile Bellezza`);
+
+        let shareUrl = '';
+        if (platform === 'twitter') {
+            shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`;
+        } else if (platform === 'line') {
+            shareUrl = `https://social-plugins.line.me/lineit/share?url=${pageUrl}&text=${text}`;
+        }
+
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+        }
+    }
+}
+
+// ============================================
 // ライトボックス
 // ============================================
 class Lightbox {
@@ -1088,6 +1164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new I18n(); // 多言語対応システム
     new HeroSlider(); // ヒーロースライドショー
     new GalleryFilter(); // ギャラリーフィルター
+    new GalleryShare(); // ギャラリーシェアボタン
     new Lightbox(); // ライトボックス
     new CartSystem(); // カートシステム
     new NewsletterForm(); // ニュースレターフォーム
