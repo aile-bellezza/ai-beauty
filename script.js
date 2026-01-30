@@ -1168,9 +1168,69 @@ document.addEventListener('DOMContentLoaded', () => {
     new Lightbox(); // ライトボックス
     new CartSystem(); // カートシステム
     new NewsletterForm(); // ニュースレターフォーム
+    new MouseStalker(); // マウスストーカー
 
     console.log('✨ Aile Bellezza Landing Page Initialized');
 });
+
+// ============================================
+// マウスストーカー（光の粒子）
+// ============================================
+class MouseStalker {
+    constructor() {
+        // PCのみ有効（タッチデバイスでは無効）
+        if (window.matchMedia('(hover: hover)').matches) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.cursor = document.createElement('div');
+        this.cursor.classList.add('cursor-stalker');
+        document.body.appendChild(this.cursor);
+
+        this.lastX = 0;
+        this.lastY = 0;
+
+        document.addEventListener('mousemove', (e) => this.onMouseMove(e));
+
+        // リンクホバー時のエフェクト拡大（オプション）
+        // const links = document.querySelectorAll('a, button');
+        // links.forEach(link => {
+        //     link.addEventListener('mouseenter', () => this.cursor.classList.add('hover'));
+        //     link.addEventListener('mouseleave', () => this.cursor.classList.remove('hover'));
+        // });
+    }
+
+    onMouseMove(e) {
+        this.cursor.style.left = e.clientX + 'px';
+        this.cursor.style.top = e.clientY + 'px';
+
+        // 勢いがある時だけパーティクル生成
+        const dist = Math.hypot(e.clientX - this.lastX, e.clientY - this.lastY);
+        if (dist > 5) {
+            this.createParticle(e.clientX, e.clientY);
+        }
+
+        this.lastX = e.clientX;
+        this.lastY = e.clientY;
+    }
+
+    createParticle(x, y) {
+        if (Math.random() > 0.2) return; // 生成頻度調整
+
+        const particle = document.createElement('div');
+        particle.classList.add('cursor-particle');
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 1000);
+    }
+}
 
 // ============================================
 // ニュースレターフォーム
