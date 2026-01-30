@@ -980,6 +980,52 @@ class Lightbox {
                     break;
             }
         });
+
+        // シェアボタン
+        this.initShareButtons();
+    }
+
+    initShareButtons() {
+        const shareButtons = document.querySelectorAll('.share-btn');
+        shareButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const platform = btn.dataset.platform;
+                this.share(platform);
+            });
+        });
+    }
+
+    share(platform) {
+        const currentImage = this.images[this.currentIndex];
+        const pageUrl = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(`${currentImage.title} | Aile Bellezza`);
+
+        let shareUrl = '';
+
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`;
+                window.open(shareUrl, '_blank', 'width=550,height=420');
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                window.open(shareUrl, '_blank', 'width=550,height=420');
+                break;
+            case 'line':
+                shareUrl = `https://social-plugins.line.me/lineit/share?url=${pageUrl}&text=${text}`;
+                window.open(shareUrl, '_blank', 'width=550,height=420');
+                break;
+            case 'copy':
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const copyBtn = document.querySelector('.share-copy');
+                    copyBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                });
+                break;
+        }
     }
 
     open(index) {

@@ -1625,6 +1625,75 @@ section {
 }
 
 /* ============================================
+   シェアボタン
+   ============================================ */
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.share-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+    border-color: transparent;
+}
+
+.share-btn.share-twitter:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.share-btn.share-facebook:hover {
+    background: #1877f2;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
+}
+
+.share-btn.share-line:hover {
+    background: #06c755;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(6, 199, 85, 0.5);
+}
+
+.share-btn.share-copy:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(90, 79, 207, 0.5);
+}
+
+.share-btn.copied {
+    background: #4ade80 !important;
+    color: #fff !important;
+}
+
+@media (max-width: 768px) {
+    .share-buttons {
+        gap: var(--space-sm);
+    }
+
+    .share-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ============================================
    商品詳細ページ
    ============================================ */
 .product-detail {
