@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Aile Bellezza</title>
+    <meta name="robots" content="noindex"> <!--検索エンジンにはインデックスさせない-->
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGN7C99ZYF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QGN7C99ZYF');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=13">
+    <style>
+        .thanks-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            text-align: center;
+        }
+
+        .thanks-card {
+            max-width: 600px;
+            width: 100%;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        .gift-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-lg);
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .thanks-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .thanks-message {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            font-size: 1.1rem;
+        }
+
+        .download-area {
+            margin: var(--space-xl) 0;
+            padding: var(--space-lg);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+        }
+
+        .preview-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .share-section {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- パーティクル背景 -->
+    <canvas id="particles"></canvas>
+
+    <div class="thanks-container">
+        <div class="glass-card thanks-card">
+            <div class="gift-icon">🎁</div>
+            <h1 class="thanks-title">Welcome Aboard!</h1>
+            <p class="thanks-message">
+                ニュースレターへの登録ありがとうございます。<br>
+                感謝の気持ちを込めて、限定4K壁紙をプレゼントいたします。
+            </p>
+
+            <div class="download-area">
+                <img src="images/hero-aile.png" alt="Free Wallpaper Preview" class="preview-image">
+                <br>
+                <!-- リソースにある既存の画像をとりあえずプレゼントとして設定 -->
+                <a href="images/hero-aile.png" download class="btn btn-primary btn-glow">
+                    <span class="btn-icon">⬇️</span>
+                    Download 4K Wallpaper
+                </a>
+            </div>
+
+            <div class="share-section">
+                <p class="text-muted" style="margin-bottom: 1rem;">友達にもシェアしませんか？</p>
+                <div class="share-buttons">
+                    <button class="share-btn share-twitter"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=AI%E7%BE%8E%E5%A5%B3%E3%81%AE4K%E5%A3%81%E7%B4%99%E3%82%92GET%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%20%7C%20Aile%20Bellezza&url=https%3A%2F%2Faile-bellezza.github.io%2Fai-beauty%2F', '_blank', 'width=550,height=420')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </button>
+                    <button class="share-btn share-line"
+                        onclick="window.open('https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Faile-bellezza.github.io%2Fai-beauty%2F', '_blank', 'width=550,height=420')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016a.63.63 0 0 1-.63.629.618.618 0 0 1-.51-.262l-2.437-3.317v2.95a.63.63 0 0 1-.63.629.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.2 0 .385.096.51.258l2.437 3.321V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.771zM8.96 12.879a.63.63 0 0 1-.63.629.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.771zm-2.42.629H4.154a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63c.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn btn-outline" style="margin-top: 2rem;">トップページに戻る</a>
+        </div>
+    </div>
+
+    <script src="script.js?v=20"></script>
+    <script>
+        // マウスストーカー初期化
+        new MouseStalker();
+        // パーティクル初期化
+        const canvas = document.getElementById('particles');
+        if (canvas) new ParticleSystem(canvas);
+    </script>
+</body>
+
+</html>

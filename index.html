@@ -633,14 +633,20 @@
         <div class="container">
             <div class="newsletter-content glass-card">
                 <div class="newsletter-text">
-                    <h3 class="newsletter-title">✦ Stay Updated</h3>
-                    <p class="newsletter-description">最新の作品情報や限定コンテンツをお届けします</p>
+                    <h3 class="newsletter-title">🎁 Free 4K Wallpaper</h3>
+                    <p class="newsletter-description">
+                        今すぐ登録して、限定4K壁紙を<br>無料ダウンロードしよう！
+                    </p>
                 </div>
                 <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/mrekajzg"
                     method="POST">
+                    <!-- 登録完了後のリダイレクト先（サンクスページ） -->
+                    <input type="hidden" name="_next" value="https://aile-bellezza.github.io/ai-beauty/thanks.html">
+
                     <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
-                    <button type="submit" class="btn btn-primary newsletter-btn">
-                        <span>Subscribe</span>
+                    <button type="submit" class="btn btn-primary newsletter-btn btn-glow">
+                        <span class="btn-icon">✨</span>
+                        Get Free Gift
                     </button>
                 </form>
                 <p class="newsletter-success" style="display: none; color: #4ade80; margin-top: 1rem;">
