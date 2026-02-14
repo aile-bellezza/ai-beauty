@@ -1,0 +1,35 @@
+name: Update Patreon Stats
+
+on:
+  schedule:
+    # 毎日 日本時間 朝9時 (UTC 0:00) に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行も可能にする
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # リポジトリへの書き込み権限（json更新のため）
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run update script
+        env:
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+        run: node scripts/update-patreon-stats.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stats.json
+          # 変更がある場合のみコミット
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Patreon stats [skip ci]" && git push)

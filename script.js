@@ -1330,21 +1330,38 @@ class FloatingCTA {
 // ============================================
 // 統計情報の自動更新
 // ============================================
+// ============================================
+// 統計情報の自動更新
+// ============================================
 class StatsUpdater {
     constructor() {
         this.postCountEl = document.getElementById('post-count');
-        // ベースカウント（サイトに未掲載の過去作品などを含む）
-        // 現在の表示(132) - 現在のギャラリー数(37) = 95
-        this.baseCount = 95;
+        // フォールバック用のベースカウント（サイトに未掲載の過去作品などを含む）
+        this.fallbackBaseCount = 95;
         if (this.postCountEl) {
-            this.update();
+            this.init();
         }
     }
 
-    update() {
+    async init() {
+        try {
+            // JSONから最新の投稿数を取得
+            const response = await fetch('data/stats.json');
+            if (!response.ok) throw new Error('Stats fetch failed');
+
+            const data = await response.json();
+            const count = data.postCount;
+
+            this.animateValue(this.postCountEl, 100, count, 2000);
+        } catch (error) {
+            console.warn('Failed to fetch stats, using fallback logic:', error);
+            this.updateFallback();
+        }
+    }
+
+    updateFallback() {
         const galleryItems = document.querySelectorAll('.gallery-item');
-        const count = this.baseCount + galleryItems.length;
-        // アニメーションで数値をカウントアップ
+        const count = this.fallbackBaseCount + galleryItems.length;
         this.animateValue(this.postCountEl, 100, count, 2000);
     }
 
