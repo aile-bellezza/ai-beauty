@@ -1014,7 +1014,7 @@ class Lightbox {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                window.open('https://www.patreon.com/ai_beauty', '_blank');
+                window.open('https://www.patreon.com/aile_bellezza', '_blank');
             });
         });
 
