@@ -1173,6 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new NewsletterForm(); // ニュースレターフォーム
     new MouseStalker(); // マウスストーカー
     new FloatingCTA(); // フローティングCTA
+    new StatsUpdater(); // 統計更新
 
     console.log('✨ Aile Bellezza Landing Page Initialized');
 });
@@ -1324,5 +1325,39 @@ class FloatingCTA {
         } else {
             this.cta.classList.remove('visible');
         }
+    }
+}
+// ============================================
+// 統計情報の自動更新
+// ============================================
+class StatsUpdater {
+    constructor() {
+        this.postCountEl = document.getElementById('post-count');
+        // ベースカウント（サイトに未掲載の過去作品などを含む）
+        // 現在の表示(132) - 現在のギャラリー数(37) = 95
+        this.baseCount = 95;
+        if (this.postCountEl) {
+            this.update();
+        }
+    }
+
+    update() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const count = this.baseCount + galleryItems.length;
+        // アニメーションで数値をカウントアップ
+        this.animateValue(this.postCountEl, 100, count, 2000);
+    }
+
+    animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start) + '+';
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
     }
 }
