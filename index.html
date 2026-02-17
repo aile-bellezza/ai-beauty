@@ -54,7 +54,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=14">
 </head>
 
 <body>
@@ -85,21 +85,23 @@
             <li><a href="https://www.patreon.com/c/aile_bellezza" target="_blank" class="btn-nav"
                     data-i18n="nav.support">サポート</a></li>
         </ul>
-        <!-- 言語切り替えボタン -->
-        <div class="lang-switcher">
-            <button class="lang-btn active" data-lang="ja">JP</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" data-lang="en">EN</button>
+        <div class="nav-actions">
+            <!-- 言語切り替えボタン -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <button class="cart-btn" aria-label="カートを開く">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-badge">0</span>
+            </button>
+            <button class="mobile-menu-btn" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <button class="cart-btn" aria-label="カートを開く">
-            <span class="cart-icon">🛒</span>
-            <span class="cart-badge">0</span>
-        </button>
-        <button class="mobile-menu-btn" aria-label="メニューを開く">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </nav>
 
     <!-- ヒーローセクション -->
@@ -115,14 +117,41 @@
                 幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。
             </p>
             <div class="hero-buttons">
-                <a href="https://www.patreon.com/c/aile_bellezza" target="_blank" class="btn btn-primary btn-glow">
-                    <span class="btn-icon">✦</span>
-                    <span data-i18n="hero.btn_support">サポートする</span>
+                <a href="#plans" class="btn btn-primary btn-glow">
+                    <span data-i18n="hero.btn_join">サポーターになる</span>
+                    <span>→</span>
                 </a>
-                <a href="#gallery" class="btn btn-secondary" data-i18n="hero.btn_gallery">
-                    作品を見る
+                <a href="#gallery" class="btn btn-secondary">
+                    <span data-i18n="hero.btn_gallery">ギャラリーを見る</span>
                 </a>
             </div>
+
+            <!-- Before/After スライダー -->
+            <div class="hero-comparison">
+                <p class="comparison-label">✨ AI Upscaling Technology</p>
+                <div class="comparison-container glass-card">
+                    <div class="comparison-image-wrapper">
+                        <!-- After Image (High Quality) -->
+                        <img src="images/gallery-1.png" alt="High Quality" class="comp-img after">
+                        <span class="comp-badge badge-after">4K Ultra HD</span>
+
+                        <!-- Before Image (Low Quality - Simulated via CSS) -->
+                        <div class="comp-overlay">
+                            <img src="images/gallery-1.png" alt="Low Quality" class="comp-img before">
+                            <span class="comp-badge badge-before">SNS Quality</span>
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="comp-slider">
+                            <div class="comp-handle">
+                                <span class="comp-arrow">⇄</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="comparison-note">※ スライダーを動かして画質の違いを体験してください</p>
+            </div>
+
             <div class="hero-stats">
                 <div class="stat-item">
                     <span class="stat-number" id="post-count">132+</span>
@@ -531,7 +560,7 @@
                 <button class="share-btn share-threads" aria-label="Visit Threads" data-platform="threads">
                     <svg width="20" height="20" viewBox="0 0 192 192" fill="currentColor">
                         <path
-                            d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z" />
+                            d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.684 108.662 128.946 98.4405 129.507Z" />
                     </svg>
                 </button>
                 <button class="share-btn share-copy" aria-label="URLをコピー" data-platform="copy">
@@ -542,6 +571,25 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- 🔒 アンロックモーダル 🔒 -->
+    <div id="unlock-modal" class="lightbox unlock-modal" aria-hidden="true">
+        <button class="lightbox-close cancel-unlock" aria-label="閉じる">&times;</button>
+        <div class="unlock-content glass-card">
+            <h3 class="unlock-title">Unlock Premium Content</h3>
+            <p class="unlock-desc">この作品の高画質版は<br>Patreonサポーター限定です</p>
+            <div class="unlock-benefits">
+                <span>✨ 4K/8K Ultra HD</span>
+                <span>💎 未公開アングル</span>
+                <span>🎁 プロンプト公開</span>
+            </div>
+            <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-primary btn-glow">
+                Patreonで解禁する →
+            </a>
+            <button class="btn-text cancel-unlock">閉じる</button>
+        </div>
+    </div>
     </div>
 
     <!-- 比較セクション -->
@@ -597,70 +645,91 @@
                 <p class="section-subtitle" data-i18n="plans.subtitle">あなたのサポートが創作の力になります</p>
             </div>
             <div class="plans-grid">
+                <!-- Tier 1: 応援プラン -->
                 <div class="plan-card glass-card">
                     <div class="plan-header">
-                        <span class="plan-badge">Starter</span>
-                        <h3 class="plan-name" data-i18n="plans.fan_name">ファン</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$5</span>
-                            <span class="price-period" data-i18n="plans.per_month">/月</span>
-                        </div>
+                        <span class="plan-badge">Tier 1</span>
+                        <h3 class="plan-name">Basic Support</h3>
+                        <p class="plan-price">¥500<span class="plan-period">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li data-i18n="plans.fan_f1">✓ 全投稿へのアクセス</li>
-                        <li data-i18n="plans.fan_f2">✓ コミュニティ参加</li>
-                        <li data-i18n="plans.fan_f3">✓ 新作のいち早い閲覧</li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>高画質画像の閲覧 (Full HD)</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>過去のアーカイブ閲覧</span>
+                        </li>
+                        <li class="disabled">
+                            <span class="check-icon">-</span>
+                            <span>4K壁紙のダウンロード</span>
+                        </li>
                     </ul>
-                    <!-- TODO: Replace href with Stripe Payment Link for Starter Plan -->
-                    <a href="https://www.patreon.com/membership/21861048" target="_blank" class="btn btn-outline"
-                        data-i18n="plans.btn_choose">
-                        <span class="btn-icon">🔓</span>
-                        このプランを選ぶ
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn">
+                        Join Tier 1
                     </a>
                 </div>
-                <div class="plan-card glass-card featured">
-                    <div class="plan-popular" data-i18n="plans.popular">人気</div>
+
+                <!-- Tier 2: クリエイタープラン (Popular) -->
+                <div class="plan-card glass-card popular">
+                    <div class="popular-tag">MOST POPULAR</div>
                     <div class="plan-header">
-                        <span class="plan-badge">Pro</span>
-                        <h3 class="plan-name" data-i18n="plans.supporter_name">サポーター</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$10</span>
-                            <span class="price-period" data-i18n="plans.per_month">/月</span>
-                        </div>
+                        <span class="plan-badge">Tier 2</span>
+                        <h3 class="plan-name">Creator Plan</h3>
+                        <p class="plan-price">¥1,000<span class="plan-period">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li data-i18n="plans.sup_f1">✓ ファンプランの全特典</li>
-                        <li data-i18n="plans.sup_f2">✓ 高解像度ダウンロード</li>
-                        <li data-i18n="plans.sup_f3">✓ 限定コレクション</li>
-                        <li data-i18n="plans.sup_f4">✓ 制作過程の公開</li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Tier 1 の全特典</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>4K Ultra HD 壁紙</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>プロンプト(呪文)公開</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>生成テクニック解説</span>
+                        </li>
                     </ul>
-                    <!-- TODO: Replace href with Stripe Payment Link for Pro Plan -->
-                    <a href="https://www.patreon.com/membership/23512909" target="_blank"
-                        class="btn btn-primary btn-glow" data-i18n="plans.btn_choose">
-                        <span class="btn-icon">🔓</span>
-                        このプランを選ぶ
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank"
+                        class="btn btn-primary btn-glow plan-btn">
+                        Join Tier 2
                     </a>
                 </div>
-                <div class="plan-card glass-card premium-card">
+
+                <!-- Tier 3: VIPプラン -->
+                <div class="plan-card glass-card">
                     <div class="plan-header">
-                        <span class="plan-badge">Premium</span>
-                        <h3 class="plan-name">VIP</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$20</span>
-                            <span class="price-period" data-i18n="plans.per_month">/月</span>
-                        </div>
+                        <span class="plan-badge">Tier 3</span>
+                        <h3 class="plan-name">VIP Access</h3>
+                        <p class="plan-price">¥3,000<span class="plan-period">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li data-i18n="plans.vip_f1">✓ すべての特典</li>
-                        <li data-i18n="plans.vip_f2">✓ VIP限定コンテンツ</li>
-                        <li data-i18n="plans.vip_f3">✓ リクエスト優先</li>
-                        <li data-i18n="plans.vip_f4">✓ 直接メッセージ</li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Tier 2 の全特典</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>限定動画コンテンツ</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>優先リクエスト権</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>未公開の差分セット</span>
+                        </li>
                     </ul>
-                    <!-- TODO: Replace href with Stripe Payment Link for VIP Plan -->
-                    <a href="https://www.patreon.com/membership/24948735" target="_blank" class="btn btn-outline"
-                        data-i18n="plans.btn_choose">
-                        <span class="btn-icon">🔓</span>
-                        このプランを選ぶ
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn">
+                        Join Tier 3
                     </a>
                 </div>
             </div>

@@ -174,6 +174,79 @@ class I18n {
 }
 
 // ============================================
+// 比較スライダー (Before/After)
+// ============================================
+class ComparisonSlider {
+    constructor() {
+        this.container = document.querySelector('.comparison-container');
+        this.overlay = document.querySelector('.comp-overlay');
+        this.slider = document.querySelector('.comp-slider');
+        this.beforeImg = document.querySelector('.comp-img.before');
+        this.isDragging = false;
+
+        if (this.container && this.overlay && this.slider) {
+            this.init();
+        }
+    }
+
+    init() {
+        // 画像サイズ補正（after画像と同じ幅に設定して、overlay内でトリミングされるようにする）
+        const width = this.container.offsetWidth;
+        this.beforeImg.style.width = width + 'px';
+
+        // イベントリスナー
+        this.slider.addEventListener('mousedown', () => this.startDrag());
+        this.slider.addEventListener('touchstart', () => this.startDrag());
+
+        window.addEventListener('mouseup', () => this.stopDrag());
+        window.addEventListener('touchend', () => this.stopDrag());
+
+        window.addEventListener('mousemove', (e) => this.move(e));
+        window.addEventListener('touchmove', (e) => this.move(e));
+
+        // リサイズ対応
+        window.addEventListener('resize', () => {
+            const width = this.container.offsetWidth;
+            this.beforeImg.style.width = width + 'px';
+        });
+    }
+
+    startDrag() {
+        this.isDragging = true;
+    }
+
+    stopDrag() {
+        this.isDragging = false;
+    }
+
+    move(e) {
+        if (!this.isDragging) return;
+
+        let clientX;
+        if (e.type === 'touchmove') {
+            clientX = e.touches[0].clientX;
+        } else {
+            clientX = e.clientX;
+        }
+
+        const rect = this.container.getBoundingClientRect();
+        let x = clientX - rect.left;
+
+        // 範囲制限
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+
+        const percentage = (x / rect.width) * 100;
+
+        // Overlayの幅を変更
+        this.overlay.style.width = percentage + '%';
+
+        // Sliderの位置を変更
+        this.slider.style.left = percentage + '%';
+    }
+}
+
+// ============================================
 // ヒーロースライドショー
 // ============================================
 class HeroSlider {
@@ -816,6 +889,41 @@ class GalleryFilter {
         }
     }
 
+    // ギャラリーの初期化
+    initialize() {
+        // 画像を遅延読み込み
+        this.lazyLoadImages();
+
+        // 3列に1列の割合でロックをかける (インデックスが 3の倍数 のアイテム)
+        // 例: 2, 5, 8... (0-indexed) -> 3番目, 6番目...
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            // 3番目、6番目... をロック (index + 1) % 3 === 0
+            if ((index + 1) % 3 === 0) {
+                item.classList.add('locked');
+            }
+        });
+
+        // フィルターボタンのイベントリスナー
+        this.filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // アクティブクラスの切り替え
+                this.filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // フィルタリング実行
+                this.filterGallery(btn.dataset.filter);
+            });
+        });
+
+        // 表示ボタンのイベントリスナー（モバイル用）
+        if (this.showMoreBtn) {
+            this.showMoreBtn.addEventListener('click', () => {
+                this.toggleGallery();
+            });
+        }
+    }
+
     init() {
         console.log('🎨 GalleryFilter初期化');
 
@@ -1107,12 +1215,41 @@ class Lightbox {
         }
     }
 
+    // ライトボックスを開く
     open(index) {
+        const items = Array.from(document.querySelectorAll('.gallery-item'));
+
+        // ロックされたアイテムの場合はアンロックモーダルを開く
+        if (items[index].classList.contains('locked')) {
+            this.openUnlockModal();
+            return;
+        }
+
         this.currentIndex = index;
         this.updateImage();
         this.lightbox.classList.add('active');
         this.lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // 背景スクロール固定
+    }
+
+    // アンロックモーダルを開く
+    openUnlockModal() {
+        const unlockModal = document.getElementById('unlock-modal');
+        if (unlockModal) {
+            unlockModal.classList.add('active');
+            unlockModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            // 閉じるボタンのイベント
+            const closeBtns = unlockModal.querySelectorAll('.cancel-unlock');
+            closeBtns.forEach(btn => {
+                btn.onclick = () => {
+                    unlockModal.classList.remove('active');
+                    unlockModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                };
+            });
+        }
     }
 
     close() {
@@ -1172,8 +1309,10 @@ document.addEventListener('DOMContentLoaded', () => {
     new CartSystem(); // カートシステム
     new NewsletterForm(); // ニュースレターフォーム
     new MouseStalker(); // マウスストーカー
+    new MouseStalker(); // マウスストーカー
     new FloatingCTA(); // フローティングCTA
     new StatsUpdater(); // 統計更新
+    new ComparisonSlider(); // 比較スライダー
 
     console.log('✨ Aile Bellezza Landing Page Initialized');
 });
