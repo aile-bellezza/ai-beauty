@@ -1353,6 +1353,140 @@ section {
 }
 
 /* ============================================
+   AIアップスケーリング技術セクション
+   ============================================ */
+.upscaling-tech {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.upscaling-comparison {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.comparison-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    cursor: ew-resize;
+    box-shadow: var(--glass-shadow), 0 0 30px rgba(90, 79, 207, 0.2);
+}
+
+.comparison-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.comp-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.comp-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    border-right: 2px solid white;
+    z-index: 2;
+}
+
+.comp-overlay img {
+    filter: blur(4px) grayscale(0.3) brightness(0.8);
+}
+
+.comp-slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: white;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.comp-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent-secondary);
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.comp-handle:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.comp-badge {
+    position: absolute;
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    color: white;
+    z-index: 5;
+}
+
+.badge-after {
+    bottom: 20px;
+    right: 20px;
+    color: var(--color-accent-secondary);
+}
+
+.badge-before {
+    bottom: 20px;
+    left: 20px;
+    color: #ff9999;
+}
+
+.comparison-note {
+    margin-top: var(--space-lg);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .comparison-container {
+        height: 350px;
+    }
+
+    .comp-badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+}
+
+/* ============================================
    プランセクション
    ============================================ */
 .plans {
