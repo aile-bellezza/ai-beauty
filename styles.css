@@ -1593,8 +1593,57 @@ section {
 }
 
 /* ============================================
-   ニュースレターセクション
+   FAQセクション
    ============================================ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    padding: var(--space-xl);
+    text-align: left;
+}
+
+.faq-question {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent-secondary);
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.faq-question::before {
+    content: 'Q.';
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent-primary);
+    opacity: 0.8;
+}
+
+.faq-answer {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    padding-left: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+        min-width: unset;
+    }
+    
+    .faq-item {
+        padding: var(--space-lg);
+    }
+}
+
 .newsletter {
     padding: var(--space-2xl) 0;
 }

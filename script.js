@@ -1476,7 +1476,7 @@ class StatsUpdater {
     constructor() {
         this.postCountEl = document.getElementById('post-count');
         // フォールバック用のベースカウント（サイトに未掲載の過去作品などを含む）
-        this.fallbackBaseCount = 95;
+        this.fallbackBaseCount = 106;
         if (this.postCountEl) {
             this.init();
         }
