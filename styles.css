@@ -198,10 +198,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-xl);
     max-width: 1000px;
-    /* 3カラムで見やすく */
     margin: 0 auto;
-    align-items: start;
-    /* 高さが違っても上揃え */
 }
 
 /* プランカード */
@@ -1503,7 +1500,7 @@ section {
 .plan-card {
     padding: var(--space-2xl) var(--space-xl);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     min-height: 500px;
