@@ -9,498 +9,744 @@
 
 // 翻訳データ
 const translations = {
-    ja: {
-        // ナビゲーション
-        'nav.home': 'ホーム',
-        'nav.gallery': 'ギャラリー',
-        'nav.plans': 'プラン',
-        'nav.support': 'サポート',
+  ja: {
+    // ナビゲーション
+    "nav.home": "ホーム",
+    "nav.gallery": "ギャラリー",
+    "nav.plans": "プラン",
+    "nav.support": "サポート",
 
-        // ヒーロー
-        'hero.subtitle': '美しさの翼 — AIで描く幻想世界',
-        'hero.description': '最先端のAI技術を駆使して、息をのむような美しいアートワークを創造しています。幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。',
-        'hero.btn_support': 'サポートする',
-        'hero.btn_gallery': '作品を見る',
-        'hero.stat_posts': '投稿作品',
-        'hero.stat_possibilities': '創造の可能性',
+    // ヒーロー
+    "hero.subtitle": "美しさの翼 — AIで描く幻想世界",
+    "hero.description":
+      "最先端のAI技術を駆使して、息をのむような美しいアートワークを創造しています。幻想的な世界観と繊細な表現力で、あなたの心に響く作品をお届けします。",
+    "hero.btn_join": "サポーターになる",
+    "hero.btn_gallery": "作品を見る",
+    "hero.stat_posts": "投稿作品",
+    "hero.stat_possibilities": "創造の可能性",
 
-        // アバウト
-        'about.title': 'クリエイターについて',
-        'about.card1_title': 'AIアートの創造',
-        'about.card1_desc': '最新のAI技術とクリエイティブな感性を融合させ、唯一無二のアート作品を生み出しています。',
-        'about.card2_title': '幻想的な世界観',
-        'about.card2_desc': 'ファンタジー、サイバーパンク、エレガントなビジュアルを組み合わせた独自のスタイル。',
-        'about.card3_title': '高品質なコンテンツ',
-        'about.card3_desc': '細部までこだわった高解像度作品を定期的に公開。限定コンテンツも多数ご用意。',
+    // Featured (新作)
+    "featured.label": "新作",
+    "featured.title": "Summer Breeze",
+    "featured.description":
+      "眩しい太陽と潮風を感じる、AILE史上最も開放的な一冊。<br>未公開カット50枚以上を含む、彼女の素顔に迫るサマーコレクション。",
+    "featured.btn_read": "今すぐ読む",
 
-        // ギャラリー
-        'gallery.title': '作品ギャラリー',
-        'gallery.subtitle': 'AIが紡ぐ幻想的なビジュアル',
-        'gallery.btn_view_all': 'すべての作品を見る →',
+    // Upscaling (高画質化)
+    "upscaling.tag": "AI技術",
+    "upscaling.title": "AIによる最高画質化",
+    "upscaling.subtitle":
+      "最先端のAI高画質化技術により、細部まで鮮明な美しさを実現",
+    "upscaling.badge_high": "4K 超高画質",
+    "upscaling.badge_low": "SNS画質",
+    "upscaling.note": "※ スライダーを左右に動かして画質を比較できます",
+    "upscaling.btn": "高画質プランを見る",
 
-        // 比較
-        'comparison.title': '会員限定のメリット',
+    // Gallery
+    "gallery.title": "作品ギャラリー",
+    "gallery.subtitle": "AIが紡ぐ幻想的なビジュアル",
+    "gallery.btn_view_all": "すべての作品を見る →",
+    "gallery.vip_badge": "VIP限定",
+    "gallery.btn_show_more": "もっと見る",
 
-        // プラン
-        'plans.title': 'サポータープラン',
-        'plans.subtitle': 'あなたのサポートが創作の力になります',
-        'plans.fan_name': 'ファン',
-        'plans.supporter_name': 'サポーター',
-        'plans.per_month': '/月',
-        'plans.popular': '人気',
-        'plans.btn_choose': 'このプランを選ぶ',
-        'plans.fan_f1': '✓ 全投稿へのアクセス',
-        'plans.fan_f2': '✓ コミュニティ参加',
-        'plans.fan_f3': '✓ 新作のいち早い閲覧',
-        'plans.sup_f1': '✓ ファンプランの全特典',
-        'plans.sup_f2': '✓ 高解像度ダウンロード',
-        'plans.sup_f3': '✓ 限定コレクション',
-        'plans.sup_f4': '✓ 制作過程の公開',
-        'plans.vip_f1': '✓ すべての特典',
-        'plans.vip_f2': '✓ VIP限定コンテンツ',
-        'plans.vip_f3': '✓ リクエスト優先',
-        'plans.vip_f4': '✓ 直接メッセージ',
+    // Shop
+    "shop.tag": "ショップ",
+    "shop.title": "デジタルコレクション",
+    "shop.subtitle": "高画質写真集や限定コンテンツを販売中",
+    "shop.booth_desc":
+      "公式ショップで高解像度写真集や限定コンテンツを販売中。日本国内からの購入に最適です。",
+    "shop.btn_visit": "ショップを見る",
 
-        // CTA
-        'cta.title': '創作の旅に参加しませんか？',
-        'cta.description': 'サポーターになって、限定コンテンツや舞台裏をお楽しみください。',
-        'cta.btn_support': '今すぐサポートする'
-    },
-    en: {
-        // Navigation
-        'nav.home': 'Home',
-        'nav.gallery': 'Gallery',
-        'nav.plans': 'Plans',
-        'nav.support': 'Support',
+    // About
+    "about.tag": "About",
+    "about.title": "クリエイターについて",
+    "about.card1_title": "AIアートの創造",
+    "about.card1_desc":
+      "最新のAI技術とクリエイティブな感性を融合させ、唯一無二のアート作品を生み出しています。",
+    "about.card2_title": "幻想的な世界観",
+    "about.card2_desc":
+      "ファンタジー、サイバーパンク、エレガントなビジュアルを組み合わせた独自のスタイル。",
+    "about.card3_title": "高品質なコンテンツ",
+    "about.card3_desc":
+      "細部までこだわった高解像度作品を定期的に公開。限定コンテンツも多数ご用意。",
 
-        // Hero
-        'hero.subtitle': 'Wings of Beauty — Fantasy Worlds by AI',
-        'hero.description': 'Creating breathtaking artworks using cutting-edge AI technology. Delivering works that touch your heart with fantastical worldviews and delicate expression.',
-        'hero.btn_support': 'Support Now',
-        'hero.btn_gallery': 'View Works',
-        'hero.stat_posts': 'Posts',
-        'hero.stat_possibilities': 'Creative Possibilities',
+    // Comparison
+    "comparison.tag": "入会のメリット",
+    "comparison.title": "会員限定のメリット",
+    "comparison.subtitle": "サポーターになると、より深く幻想的な世界を楽しめます",
+    "comparison.col_free": "Free User",
+    "comparison.col_patreon": "Patreon Supporter",
+    "comparison.quality": "画質",
+    "comparison.quality_free": "標準 (Full HD)",
+    "comparison.quality_patreon": "最高画質 (4K Ultra HD)",
+    "comparison.gallery": "ギャラリー閲覧",
+    "comparison.gallery_free": "一部制限あり",
+    "comparison.gallery_patreon": "全作品アンロック 🔓",
+    "comparison.download": "ダウンロード",
+    "comparison.download_free": "不可",
+    "comparison.download_patreon": "無制限",
+    "comparison.content": "限定コンテンツ",
+    "comparison.content_free": "なし",
+    "comparison.content_patreon": "あり (未公開・差分)",
+    "comparison.request": "リクエスト権",
+    "comparison.request_free": "なし",
+    "comparison.request_patreon": "優先リクエスト",
 
-        // About
-        'about.title': 'About the Creator',
-        'about.card1_title': 'AI Art Creation',
-        'about.card1_desc': 'Combining the latest AI technology with creative sensibility to produce one-of-a-kind artworks.',
-        'about.card2_title': 'Fantastical Worldview',
-        'about.card2_desc': 'A unique style blending fantasy, cyberpunk, and elegant visuals.',
-        'about.card3_title': 'Premium Content',
-        'about.card3_desc': 'Regularly publishing high-resolution works with attention to detail. Exclusive content also available.',
+    // Plans
+    "plans.title": "サポータープラン",
+    "plans.subtitle": "あなたのサポートが創作の力になります",
+    "plans.tag": "メンバーシップ",
+    "plans.fan_name": "ファン",
+    "plans.supporter_name": "サポーター",
+    "plans.vip_name": "VIP",
+    "plans.price_fan": "¥500",
+    "plans.price_supporter": "¥1,000",
+    "plans.price_vip": "¥3,000",
+    "plans.per_month": "/月",
+    "plans.popular": "一番人気",
+    "plans.btn_join": "このプランに加入する",
+    "plans.btn_join_vip": "VIPメンバーになる",
+    "plans.fan_f1": "高画質画像の閲覧 (Full HD)",
+    "plans.fan_f2": "過去のアーカイブ閲覧",
+    "plans.fan_f3": "4K壁紙のダウンロード",
+    "plans.sup_f1": "Tier 1 の全特典",
+    "plans.sup_f2": "4K Ultra HD 壁紙",
+    "plans.sup_f3": "プロンプト(呪文)公開",
+    "plans.sup_f4": "解説アーカイブ閲覧",
+    "plans.vip_f1": "Tier 2 の全特典",
+    "plans.vip_f2": "限定動画コンテンツ",
+    "plans.vip_f3": "優先リクエスト権",
+    "plans.vip_f4": "未公開の差分セット",
 
-        // Gallery
-        'gallery.title': 'Art Gallery',
-        'gallery.subtitle': 'Fantastical Visuals Woven by AI',
-        'gallery.btn_view_all': 'View All Works →',
+    // CTA
+    "cta.title": "創作の旅に参加しませんか？",
+    "cta.description":
+      "サポーターになって、限定コンテンツや舞台裏をお楽しみください。",
+    "cta.btn_support": "今すぐサポートする",
 
-        // Comparison
-        'comparison.title': 'Member Benefits',
+    // FAQ
+    "faq.title": "よくある質問",
+    "faq.subtitle": "サービスや特典に関するご質問にお答えします",
+    "faq.q1": "高画質画像はどのようにダウンロードできますか？",
+    "faq.a1":
+      "Patreonの対象ティア（Tier 2以上）にご入会いただくと、投稿ごとに用意された高画質版（4K/8K）のダウンロードリンクをご利用いただけます。",
+    "faq.q2": "SNSのアイコンやヘッダーに使用してもいいですか？",
+    "faq.a2":
+      "はい、個人のSNSでのご利用は歓迎しています。その際、プロフィール等に当サイトへのリンクやクレジット（@aile_bellezza）を記載いただけると大変励みになります。",
+    "faq.q3": "支払い方法には何がありますか？",
+    "faq.a3":
+      "Patreonでは、クレジットカード、PayPal、Apple Pay、Google Payなど、主要な決済方法に対応しています。",
+    "faq.q4": "特定のシチュエーションやキャラのリクエストは可能ですか？",
+    "faq.a4":
+      "Tier 3（VIP Access）のサポーター様限定で、優先リクエストを受け付けております。詳細はPatreon経由のメッセージで調整させていただきます。",
 
-        // Plans
-        'plans.title': 'Membership Plans',
-        'plans.subtitle': 'Your support fuels my creativity',
-        'plans.fan_name': 'Fan',
-        'plans.supporter_name': 'Supporter',
-        'plans.per_month': '/mo',
-        'plans.popular': 'Popular',
-        'plans.btn_choose': 'Choose This Plan',
-        'plans.fan_f1': '✓ Access to all posts',
-        'plans.fan_f2': '✓ Community access',
-        'plans.fan_f3': '✓ Early access to new works',
-        'plans.sup_f1': '✓ All Fan benefits',
-        'plans.sup_f2': '✓ High-resolution downloads',
-        'plans.sup_f3': '✓ Exclusive collections',
-        'plans.sup_f4': '✓ Behind-the-scenes content',
-        'plans.vip_f1': '✓ All benefits',
-        'plans.vip_f2': '✓ VIP-exclusive content',
-        'plans.vip_f3': '✓ Priority requests',
-        'plans.vip_f4': '✓ Direct messages',
+    // Newsletter
+    "newsletter.title": "無料4K壁紙プレゼント",
+    "newsletter.desc":
+      "今すぐ登録して、限定4K壁紙を<br>無料ダウンロードしよう！",
+    "newsletter.btn": "特典を受け取る",
+    "newsletter.placeholder": "メールアドレス",
+    "newsletter.success": "✓ 登録ありがとうございます！",
 
-        // CTA
-        'cta.title': 'Join the Creative Journey?',
-        'cta.description': 'Become a supporter and enjoy exclusive content and behind-the-scenes access.',
-        'cta.btn_support': 'Support Now'
-    }
+    "footer.support": "サポート",
+    "floating.unlock": "ギャラリーを解禁",
+
+    // カート & UI
+    "cart.title": "ショッピングカート",
+    "cart.empty": "カートは空です",
+    "cart.continue": "買い物を続ける",
+    "cart.total": "合計:",
+    "cart.checkout": "チェックアウト",
+    "cart.remove": "削除",
+    "cart.added": "追加しました",
+
+    // アンロックモーダル
+    "unlock.title": "プレミアムコンテンツのアンロック",
+    "unlock.desc": "この作品の高画質版は<br>Patreonサポーター限定です",
+    "unlock.b1": "✨ 4K/8K Ultra HD",
+    "unlock.b2": "💎 限定アングル",
+    "unlock.b3": "🎁 プロンプト公開",
+    "unlock.btn": "Patreonで解禁する →",
+    "unlock.close": "閉じる",
+
+    // アクセシビリティ
+    "aria.close": "閉じる",
+    "aria.prev": "前の画像",
+    "aria.next": "次の画像",
+    "aria.copy": "URLをコピー",
+    "aria.menu": "メニューを開く",
+    "aria.cart": "カートを開く",
+  },
+  en: {
+    // Navigation
+    "nav.home": "Home",
+    "nav.gallery": "Gallery",
+    "nav.plans": "Plans",
+    "nav.support": "Support",
+
+    // Hero
+    "hero.subtitle": "Wings of Beauty — Fantasy Worlds by AI",
+    "hero.description":
+      "Creating breathtaking artworks using cutting-edge AI technology. Delivering works that touch your heart with fantastical worldviews and delicate expression.",
+    "hero.btn_join": "Support Now",
+    "hero.btn_gallery": "View Works",
+    "hero.stat_posts": "Posts",
+    "hero.stat_possibilities": "Creative Possibilities",
+
+    // Featured
+    "featured.label": "New Release",
+    "featured.title": "Summer Breeze",
+    "featured.description":
+      "The most liberating collection in AILE history, feeling the dazzling sun and sea breeze.<br>A summer collection approaching her true face, including over 50 unpublished cuts.",
+    "featured.btn_read": "Read Now",
+
+    // Upscaling
+    "upscaling.tag": "AI Technology",
+    "upscaling.title": "AI Upscaling & Excellence",
+    "upscaling.subtitle":
+      "Achieving crystal-clear beauty down to the details with state-of-the-art AI upscaling.",
+    "upscaling.badge_high": "4K Ultra HD",
+    "upscaling.badge_low": "SNS Quality",
+    "upscaling.note": "* Slide left and right to compare quality",
+    "upscaling.btn": "View Premium Plans",
+
+    // Gallery
+    "gallery.title": "Art Gallery",
+    "gallery.subtitle": "Fantastical Visuals Woven by AI",
+    "gallery.btn_view_all": "View All Works →",
+    "gallery.vip_badge": "VIP Only",
+    "gallery.btn_show_more": "Show More",
+
+    // Shop
+    "shop.tag": "Shop",
+    "shop.title": "Digital Collections",
+    "shop.subtitle": "Selling high-quality photobooks and exclusive content.",
+    "shop.booth_desc":
+      "Official shop selling high-resolution photobooks and exclusive content. Best for purchases from within Japan.",
+    "shop.btn_visit": "Visit Shop",
+
+    // About
+    "about.tag": "About",
+    "about.title": "About the Creator",
+    "about.card1_title": "AI Art Creation",
+    "about.card1_desc":
+      "Combining the latest AI technology with creative sensibility to produce one-of-a-kind artworks.",
+    "about.card2_title": "Fantastical Worldview",
+    "about.card2_desc":
+      "A unique style blending fantasy, cyberpunk, and elegant visuals.",
+    "about.card3_title": "Premium Content",
+    "about.card3_desc":
+      "Regularly publishing high-resolution works with attention to detail. Exclusive content also available.",
+
+    // Comparison
+    "comparison.tag": "Why Join?",
+    "comparison.title": "Member Benefits",
+    "comparison.subtitle": "Enjoy a deeper fantastical world by becoming a supporter.",
+    "comparison.col_free": "Free User",
+    "comparison.col_patreon": "Patreon Supporter",
+    "comparison.quality": "Quality",
+    "comparison.quality_free": "Standard (Full HD)",
+    "comparison.quality_patreon": "Highest (4K Ultra HD)",
+    "comparison.gallery": "Gallery Access",
+    "comparison.gallery_free": "Limited",
+    "comparison.gallery_patreon": "Full Unlock 🔓",
+    "comparison.download": "Downloads",
+    "comparison.download_free": "Not Available",
+    "comparison.download_patreon": "Unlimited",
+    "comparison.content": "Exclusive Content",
+    "comparison.content_free": "None",
+    "comparison.content_patreon": "Included (Unpublished/Diffs)",
+    "comparison.request": "Requests",
+    "comparison.request_free": "None",
+    "comparison.request_patreon": "Priority Requests",
+
+    // Plans
+    "plans.title": "Membership Plans",
+    "plans.subtitle": "Your support fuels my creativity",
+    "plans.tag": "Membership",
+    "plans.fan_name": "Fan",
+    "plans.supporter_name": "Supporter",
+    "plans.vip_name": "VIP",
+    "plans.price_fan": "$5",
+    "plans.price_supporter": "$10",
+    "plans.price_vip": "$30",
+    "plans.per_month": "/mo",
+    "plans.popular": "MOST POPULAR",
+    "plans.btn_join": "Join This Tier",
+    "plans.btn_join_vip": "Join VIP Tier",
+    "plans.fan_f1": "Access to all posts (Full HD)",
+    "plans.fan_f2": "Access to archives",
+    "plans.fan_f3": "4K Wallpaper downloads",
+    "plans.sup_f1": "All Tier 1 benefits",
+    "plans.sup_f2": "4K Ultra HD Wallpapers",
+    "plans.sup_f3": "Access to Prompts",
+    "plans.sup_f4": "Technique archives",
+    "plans.vip_f1": "All Tier 2 benefits",
+    "plans.vip_f2": "Exclusive video content",
+    "plans.vip_f3": "Priority requests",
+    "plans.vip_f4": "Unpublished/Diff sets",
+
+    // CTA
+    "cta.title": "Join the Creative Journey?",
+    "cta.description":
+      "Become a supporter and enjoy exclusive content and behind-the-scenes access.",
+    "cta.btn_support": "Support Now",
+
+    // FAQ
+    "faq.title": "FAQ",
+    "faq.subtitle": "Answers to common questions about services and benefits",
+    "faq.q1": "How can I download high-quality images?",
+    "faq.a1":
+      "By joining eligible Patreon tiers (Tier 2+), you get access to high-quality (4K/8K) download links for each post.",
+    "faq.q2": "Can I use images for SNS icons or headers?",
+    "faq.a2":
+      "Yes, personal use on SNS is welcome. We appreciate it if you credit us (@aile_bellezza) or link to our site.",
+    "faq.q3": "What payment methods are accepted?",
+    "faq.a3":
+      "Patreon supports credit cards, PayPal, Apple Pay, Google Pay, and other major payment methods.",
+    "faq.q4": "Can I request specific situations or characters?",
+    "faq.a4":
+      "Priority requests are available exclusively for Tier 3 (VIP Access) supporters. Details are arranged via Patreon messages.",
+
+    // Newsletter
+    "newsletter.title": "Free 4K Wallpaper",
+    "newsletter.desc":
+      "Sign up now and get exclusive 4K wallpapers<br>for free download!",
+    "newsletter.btn": "Get Free Gift",
+    "newsletter.placeholder": "your@email.com",
+    "newsletter.success": "✓ Thank you for subscribing!",
+
+    "footer.support": "Support",
+    "floating.unlock": "Unlock Full Gallery",
+
+    // Cart Drawer & UI
+    "cart.title": "Shopping Cart",
+    "cart.empty": "Your cart is empty",
+    "cart.continue": "Continue Shopping",
+    "cart.total": "Box Total:",
+    "cart.checkout": "Checkout",
+    "cart.remove": "Remove",
+    "cart.added": "Added",
+
+    // Unlock Modal
+    "unlock.title": "Unlock Premium Content",
+    "unlock.desc": "This high-quality work is<br>exclusive to Patreon supporters",
+    "unlock.b1": "✨ 4K/8K Ultra HD",
+    "unlock.b2": "💎 Exclusive Angles",
+    "unlock.b3": "🎁 Prompts Included",
+    "unlock.btn": "Unlock on Patreon →",
+    "unlock.close": "Close",
+
+    // Accessibility & Buttons
+    "aria.close": "Close",
+    "aria.prev": "Previous Image",
+    "aria.next": "Next Image",
+    "aria.copy": "Copy URL",
+    "aria.menu": "Open Menu",
+    "aria.cart": "Open Cart",
+  },
 };
 
 // 言語切り替えシステム
 class I18n {
-    constructor() {
-        this.currentLang = localStorage.getItem('lang') || 'ja';
-        this.init();
-    }
+  constructor() {
+    this.currentLang = localStorage.getItem("lang") || "ja";
+    this.init();
+  }
 
-    init() {
-        // 言語ボタンのイベントリスナー
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const lang = e.target.dataset.lang;
-                this.setLanguage(lang);
-            });
-        });
+  init() {
+    // 言語ボタンのイベントリスナー
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const lang = e.target.dataset.lang;
+        this.setLanguage(lang);
+      });
+    });
 
-        // 初期言語を適用
-        this.setLanguage(this.currentLang);
-    }
+    // 初期言語を適用
+    this.setLanguage(this.currentLang);
+  }
 
-    setLanguage(lang) {
-        this.currentLang = lang;
-        localStorage.setItem('lang', lang);
+  setLanguage(lang) {
+    this.currentLang = lang;
+    localStorage.setItem("lang", lang);
 
-        // ボタンのアクティブ状態を更新
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
+    // ボタンのアクティブ状態を更新
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
 
-        // HTML lang属性を更新
-        document.documentElement.lang = lang;
+    // HTML lang属性を更新
+    document.documentElement.lang = lang;
 
-        // 翻訳を適用
-        this.applyTranslations();
-    }
+    // 翻訳を適用
+    this.applyTranslations();
+  }
 
-    applyTranslations() {
-        const langData = translations[this.currentLang];
+  // 外部から翻訳を再適用できるように静的メソッドまたはインスタンスメソッドを公開
+  updateDynamicContent() {
+    this.applyTranslations();
+  }
 
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.dataset.i18n;
-            if (langData[key]) {
-                el.textContent = langData[key];
-            }
-        });
-    }
+  applyTranslations() {
+    const langData = translations[this.currentLang];
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.dataset.i18n;
+      if (langData[key]) {
+        // HTMLタグ（<br>など）を含む可能性があるためinnerHTMLを使用
+        el.innerHTML = langData[key];
+      }
+    });
+
+    // aria-labelの翻訳対応
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      const key = el.dataset.i18nAriaLabel;
+      if (langData[key]) {
+        el.setAttribute("aria-label", langData[key]);
+      }
+    });
+
+    // placeholderの翻訳対応
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.dataset.i18nPlaceholder;
+      if (langData[key]) {
+        el.setAttribute("placeholder", langData[key]);
+      }
+    });
+  }
 }
 
 // ============================================
 // 比較スライダー (Before/After)
 // ============================================
 class ComparisonSlider {
-    constructor() {
-        this.container = document.querySelector('.comparison-container');
-        this.overlay = document.querySelector('.comp-overlay');
-        this.slider = document.querySelector('.comp-slider');
-        this.beforeImg = document.querySelector('.comp-img.before');
-        this.isDragging = false;
+  constructor() {
+    this.container = document.querySelector(".comparison-container");
+    this.overlay = document.querySelector(".comp-overlay");
+    this.slider = document.querySelector(".comp-slider");
+    this.beforeImg = document.querySelector(".comp-img.before");
+    this.isDragging = false;
 
-        if (this.container && this.overlay && this.slider) {
-            this.init();
-        }
+    if (this.container && this.overlay && this.slider) {
+      this.init();
+    }
+  }
+
+  init() {
+    // 画像サイズ補正（after画像と同じ幅に設定して、overlay内でトリミングされるようにする）
+    const width = this.container.offsetWidth;
+    this.beforeImg.style.width = width + "px";
+
+    // イベントリスナー
+    this.slider.addEventListener("mousedown", () => this.startDrag());
+    this.slider.addEventListener("touchstart", () => this.startDrag());
+
+    window.addEventListener("mouseup", () => this.stopDrag());
+    window.addEventListener("touchend", () => this.stopDrag());
+
+    window.addEventListener("mousemove", (e) => this.move(e));
+    window.addEventListener("touchmove", (e) => this.move(e));
+
+    // リサイズ対応
+    window.addEventListener("resize", () => {
+      const width = this.container.offsetWidth;
+      this.beforeImg.style.width = width + "px";
+    });
+  }
+
+  startDrag() {
+    this.isDragging = true;
+  }
+
+  stopDrag() {
+    this.isDragging = false;
+  }
+
+  move(e) {
+    if (!this.isDragging) return;
+
+    let clientX;
+    if (e.type === "touchmove") {
+      clientX = e.touches[0].clientX;
+    } else {
+      clientX = e.clientX;
     }
 
-    init() {
-        // 画像サイズ補正（after画像と同じ幅に設定して、overlay内でトリミングされるようにする）
-        const width = this.container.offsetWidth;
-        this.beforeImg.style.width = width + 'px';
+    const rect = this.container.getBoundingClientRect();
+    let x = clientX - rect.left;
 
-        // イベントリスナー
-        this.slider.addEventListener('mousedown', () => this.startDrag());
-        this.slider.addEventListener('touchstart', () => this.startDrag());
+    // 範囲制限
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
 
-        window.addEventListener('mouseup', () => this.stopDrag());
-        window.addEventListener('touchend', () => this.stopDrag());
+    const percentage = (x / rect.width) * 100;
 
-        window.addEventListener('mousemove', (e) => this.move(e));
-        window.addEventListener('touchmove', (e) => this.move(e));
+    // Overlayの幅を変更
+    this.overlay.style.width = percentage + "%";
 
-        // リサイズ対応
-        window.addEventListener('resize', () => {
-            const width = this.container.offsetWidth;
-            this.beforeImg.style.width = width + 'px';
-        });
-    }
-
-    startDrag() {
-        this.isDragging = true;
-    }
-
-    stopDrag() {
-        this.isDragging = false;
-    }
-
-    move(e) {
-        if (!this.isDragging) return;
-
-        let clientX;
-        if (e.type === 'touchmove') {
-            clientX = e.touches[0].clientX;
-        } else {
-            clientX = e.clientX;
-        }
-
-        const rect = this.container.getBoundingClientRect();
-        let x = clientX - rect.left;
-
-        // 範囲制限
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-
-        const percentage = (x / rect.width) * 100;
-
-        // Overlayの幅を変更
-        this.overlay.style.width = percentage + '%';
-
-        // Sliderの位置を変更
-        this.slider.style.left = percentage + '%';
-    }
+    // Sliderの位置を変更
+    this.slider.style.left = percentage + "%";
+  }
 }
 
 // ============================================
 // ヒーロースライドショー
 // ============================================
 class HeroSlider {
-    constructor() {
-        this.slides = document.querySelectorAll('.hero-slide');
-        this.dots = document.querySelectorAll('.slide-dot');
-        this.currentSlide = 0;
-        this.slideInterval = null;
-        this.intervalTime = 5000; // 5秒間隔
+  constructor() {
+    this.slides = document.querySelectorAll(".hero-slide");
+    this.dots = document.querySelectorAll(".slide-dot");
+    this.currentSlide = 0;
+    this.slideInterval = null;
+    this.intervalTime = 5000; // 5秒間隔
 
-        if (this.slides.length > 0) {
-            this.init();
-        }
+    if (this.slides.length > 0) {
+      this.init();
     }
+  }
 
-    init() {
-        // ドットクリックイベント
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                this.goToSlide(index);
-                this.resetInterval();
-            });
-        });
+  init() {
+    // ドットクリックイベント
+    this.dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        this.goToSlide(index);
+        this.resetInterval();
+      });
+    });
 
-        // 自動スライド開始
-        this.startAutoSlide();
+    // 自動スライド開始
+    this.startAutoSlide();
 
-        // マウスホバー時は自動スライド停止
-        const slider = document.querySelector('.hero-slideshow');
-        if (slider) {
-            slider.addEventListener('mouseenter', () => this.stopAutoSlide());
-            slider.addEventListener('mouseleave', () => this.startAutoSlide());
-        }
+    // マウスホバー時は自動スライド停止
+    const slider = document.querySelector(".hero-slideshow");
+    if (slider) {
+      slider.addEventListener("mouseenter", () => this.stopAutoSlide());
+      slider.addEventListener("mouseleave", () => this.startAutoSlide());
     }
+  }
 
-    goToSlide(index) {
-        // 現在のスライドを非アクティブに
-        this.slides[this.currentSlide].classList.remove('active');
-        this.dots[this.currentSlide].classList.remove('active');
+  goToSlide(index) {
+    // 現在のスライドを非アクティブに
+    this.slides[this.currentSlide].classList.remove("active");
+    this.dots[this.currentSlide].classList.remove("active");
 
-        // 新しいスライドをアクティブに
-        this.currentSlide = index;
-        this.slides[this.currentSlide].classList.add('active');
-        this.dots[this.currentSlide].classList.add('active');
+    // 新しいスライドをアクティブに
+    this.currentSlide = index;
+    this.slides[this.currentSlide].classList.add("active");
+    this.dots[this.currentSlide].classList.add("active");
+  }
+
+  nextSlide() {
+    const next = (this.currentSlide + 1) % this.slides.length;
+    this.goToSlide(next);
+  }
+
+  startAutoSlide() {
+    this.slideInterval = setInterval(() => this.nextSlide(), this.intervalTime);
+  }
+
+  stopAutoSlide() {
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+      this.slideInterval = null;
     }
+  }
 
-    nextSlide() {
-        const next = (this.currentSlide + 1) % this.slides.length;
-        this.goToSlide(next);
-    }
-
-    startAutoSlide() {
-        this.slideInterval = setInterval(() => this.nextSlide(), this.intervalTime);
-    }
-
-    stopAutoSlide() {
-        if (this.slideInterval) {
-            clearInterval(this.slideInterval);
-            this.slideInterval = null;
-        }
-    }
-
-    resetInterval() {
-        this.stopAutoSlide();
-        this.startAutoSlide();
-    }
+  resetInterval() {
+    this.stopAutoSlide();
+    this.startAutoSlide();
+  }
 }
 
 // パーティクルシステム
 class ParticleSystem {
-    constructor(canvas) {
-        this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
-        this.particles = [];
-        this.particleCount = 80;
-        this.mouse = { x: null, y: null, radius: 150 };
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
+    this.particles = [];
+    this.particleCount = 80;
+    this.mouse = { x: null, y: null, radius: 150 };
 
-        this.init();
-        this.bindEvents();
-        this.animate();
+    this.init();
+    this.bindEvents();
+    this.animate();
+  }
+
+  init() {
+    this.resize();
+
+    // パーティクルを生成
+    for (let i = 0; i < this.particleCount; i++) {
+      this.particles.push(new Particle(this.canvas));
+    }
+  }
+
+  bindEvents() {
+    // リサイズイベント
+    window.addEventListener("resize", () => this.resize());
+
+    // マウス追従
+    window.addEventListener("mousemove", (e) => {
+      this.mouse.x = e.x;
+      this.mouse.y = e.y;
+    });
+
+    window.addEventListener("mouseout", () => {
+      this.mouse.x = null;
+      this.mouse.y = null;
+    });
+  }
+
+  resize() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // パーティクルを更新・描画
+    for (let i = 0; i < this.particles.length; i++) {
+      this.particles[i].update(this.canvas, this.mouse);
+      this.particles[i].draw(this.ctx);
     }
 
-    init() {
-        this.resize();
+    // パーティクル間の接続線を描画
+    this.connectParticles();
 
-        // パーティクルを生成
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push(new Particle(this.canvas));
+    requestAnimationFrame(() => this.animate());
+  }
+
+  connectParticles() {
+    const maxDistance = 120;
+
+    for (let i = 0; i < this.particles.length; i++) {
+      for (let j = i + 1; j < this.particles.length; j++) {
+        const dx = this.particles[i].x - this.particles[j].x;
+        const dy = this.particles[i].y - this.particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < maxDistance) {
+          const opacity = (1 - distance / maxDistance) * 0.5;
+          this.ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
+          this.ctx.lineWidth = 1;
+          this.ctx.beginPath();
+          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+          this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+          this.ctx.stroke();
         }
+      }
     }
-
-    bindEvents() {
-        // リサイズイベント
-        window.addEventListener('resize', () => this.resize());
-
-        // マウス追従
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.x;
-            this.mouse.y = e.y;
-        });
-
-        window.addEventListener('mouseout', () => {
-            this.mouse.x = null;
-            this.mouse.y = null;
-        });
-    }
-
-    resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-    }
-
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // パーティクルを更新・描画
-        for (let i = 0; i < this.particles.length; i++) {
-            this.particles[i].update(this.canvas, this.mouse);
-            this.particles[i].draw(this.ctx);
-        }
-
-        // パーティクル間の接続線を描画
-        this.connectParticles();
-
-        requestAnimationFrame(() => this.animate());
-    }
-
-    connectParticles() {
-        const maxDistance = 120;
-
-        for (let i = 0; i < this.particles.length; i++) {
-            for (let j = i + 1; j < this.particles.length; j++) {
-                const dx = this.particles[i].x - this.particles[j].x;
-                const dy = this.particles[i].y - this.particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < maxDistance) {
-                    const opacity = (1 - distance / maxDistance) * 0.5;
-                    this.ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
-                    this.ctx.lineWidth = 1;
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                    this.ctx.stroke();
-                }
-            }
-        }
-    }
+  }
 }
 
 // パーティクルクラス
 class Particle {
-    constructor(canvas) {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = this.getRandomColor();
+  constructor(canvas) {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = Math.random() * 0.5 - 0.25;
+    this.speedY = Math.random() * 0.5 - 0.25;
+    this.color = this.getRandomColor();
+  }
+
+  getRandomColor() {
+    const colors = [
+      "rgba(168, 85, 247, 0.8)", // パープル
+      "rgba(236, 72, 153, 0.8)", // ピンク
+      "rgba(6, 182, 212, 0.8)", // シアン
+      "rgba(79, 172, 254, 0.8)", // ブルー
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  update(canvas, mouse) {
+    // 位置を更新
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // マウスとのインタラクション
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < mouse.radius) {
+        const force = (mouse.radius - distance) / mouse.radius;
+        const angle = Math.atan2(dy, dx);
+        this.x -= Math.cos(angle) * force * 2;
+        this.y -= Math.sin(angle) * force * 2;
+      }
     }
 
-    getRandomColor() {
-        const colors = [
-            'rgba(168, 85, 247, 0.8)',  // パープル
-            'rgba(236, 72, 153, 0.8)',   // ピンク
-            'rgba(6, 182, 212, 0.8)',    // シアン
-            'rgba(79, 172, 254, 0.8)'    // ブルー
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
+    // 境界チェック
+    if (this.x < 0) this.x = canvas.width;
+    if (this.x > canvas.width) this.x = 0;
+    if (this.y < 0) this.y = canvas.height;
+    if (this.y > canvas.height) this.y = 0;
+  }
 
-    update(canvas, mouse) {
-        // 位置を更新
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // マウスとのインタラクション
-        if (mouse.x !== null && mouse.y !== null) {
-            const dx = mouse.x - this.x;
-            const dy = mouse.y - this.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < mouse.radius) {
-                const force = (mouse.radius - distance) / mouse.radius;
-                const angle = Math.atan2(dy, dx);
-                this.x -= Math.cos(angle) * force * 2;
-                this.y -= Math.sin(angle) * force * 2;
-            }
-        }
-
-        // 境界チェック
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
-    }
-
-    draw(ctx) {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+  draw(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }
 
 // スクロールアニメーション（強化版）
 class ScrollAnimator {
-    constructor() {
-        // 対象要素を拡大
-        this.elements = document.querySelectorAll(
-            '.glass-card, .section-header, .gallery-item, .plan-card, .stat-item, .hero-buttons, .cta-content'
-        );
-        this.init();
-    }
+  constructor() {
+    // 対象要素を拡大
+    this.elements = document.querySelectorAll(
+      ".glass-card, .section-header, .gallery-item, .plan-card, .stat-item, .hero-buttons, .cta-content",
+    );
+    this.init();
+  }
 
-    init() {
-        // Intersection Observerを設定
-        const options = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
-        };
+  init() {
+    // Intersection Observerを設定
+    const options = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -80px 0px",
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // スタッガードアニメーション用の遅延を計算
-                    const delay = this.getStaggerDelay(entry.target);
-                    setTimeout(() => {
-                        entry.target.classList.add('animate-in');
-                    }, delay);
-                }
-            });
-        }, options);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // スタッガードアニメーション用の遅延を計算
+          const delay = this.getStaggerDelay(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add("animate-in");
+          }, delay);
+        }
+      });
+    }, options);
 
-        this.elements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = `opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+    this.elements.forEach((el, index) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(40px)";
+      el.style.transition = `opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
                                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)`;
-            observer.observe(el);
-        });
-    }
+      observer.observe(el);
+    });
+  }
 
-    // スタッガード遅延を計算（同じ親内の要素に遅延を適用）
-    getStaggerDelay(element) {
-        const parent = element.parentElement;
-        const siblings = parent.querySelectorAll('.glass-card, .gallery-item, .plan-card, .stat-item');
-        const index = Array.from(siblings).indexOf(element);
-        return index * 100; // 100msずつ遅延
-    }
+  // スタッガード遅延を計算（同じ親内の要素に遅延を適用）
+  getStaggerDelay(element) {
+    const parent = element.parentElement;
+    const siblings = parent.querySelectorAll(
+      ".glass-card, .gallery-item, .plan-card, .stat-item",
+    );
+    const index = Array.from(siblings).indexOf(element);
+    return index * 100; // 100msずつ遅延
+  }
 }
 
 // アニメーションクラスを追加するスタイル
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     .animate-in {
         opacity: 1 !important;
@@ -511,562 +757,594 @@ document.head.appendChild(style);
 
 // モバイルメニュー
 class MobileMenu {
-    constructor() {
-        this.btn = document.querySelector('.mobile-menu-btn');
-        this.nav = document.querySelector('.nav-links');
-        this.isOpen = false;
+  constructor() {
+    this.btn = document.querySelector(".mobile-menu-btn");
+    this.nav = document.querySelector(".nav-links");
+    this.isOpen = false;
 
-        if (this.btn && this.nav) {
-            // クリックイベント
-            this.btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.toggle();
-            });
+    if (this.btn && this.nav) {
+      // クリックイベント
+      this.btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggle();
+      });
 
-            // タッチイベント（モバイル用）
-            this.btn.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.toggle();
-            });
+      // タッチイベント（モバイル用）
+      this.btn.addEventListener("touchend", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggle();
+      });
 
-            // ナビリンクをクリックしたらメニューを閉じる
-            this.nav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (this.isOpen) {
-                        this.close();
-                    }
-                });
-            });
-
-            // 初期状態を設定（CSSクラスを使用）
-            this.nav.classList.add('mobile-menu-nav');
-        }
-    }
-
-    toggle() {
-        if (this.isOpen) {
+      // ナビリンクをクリックしたらメニューを閉じる
+      this.nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (this.isOpen) {
             this.close();
-        } else {
-            this.open();
-        }
-    }
+          }
+        });
+      });
 
-    open() {
-        this.isOpen = true;
-        this.nav.classList.add('mobile-open');
-        this.btn.classList.add('active');
-        this.btn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+      // 初期状態を設定（CSSクラスを使用）
+      this.nav.classList.add("mobile-menu-nav");
     }
+  }
 
-    close() {
-        this.isOpen = false;
-        this.nav.classList.remove('mobile-open');
-        this.btn.classList.remove('active');
-        this.btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+  toggle() {
+    if (this.isOpen) {
+      this.close();
+    } else {
+      this.open();
     }
+  }
+
+  open() {
+    this.isOpen = true;
+    this.nav.classList.add("mobile-open");
+    this.btn.classList.add("active");
+    this.btn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  close() {
+    this.isOpen = false;
+    this.nav.classList.remove("mobile-open");
+    this.btn.classList.remove("active");
+    this.btn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
 }
 
 // スムーススクロール
 class SmoothScroll {
-    constructor() {
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            // クリックとタッチの両方に対応
-            const handleNavigation = (e) => {
-                const href = link.getAttribute('href');
-                if (href === '#') return;
+  constructor() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      // クリックとタッチの両方に対応
+      const handleNavigation = (e) => {
+        const href = link.getAttribute("href");
+        if (href === "#") return;
 
-                e.preventDefault();
-                const target = document.querySelector(href);
+        e.preventDefault();
+        const target = document.querySelector(href);
 
-                if (target) {
-                    // モバイルメニューが開いている場合は閉じる
-                    if (window.mobileMenu && window.mobileMenu.isOpen) {
-                        window.mobileMenu.close();
-                    }
+        if (target) {
+          // モバイルメニューが開いている場合は閉じる
+          if (window.mobileMenu && window.mobileMenu.isOpen) {
+            window.mobileMenu.close();
+          }
 
-                    // 少し遅延させてからスクロール（メニューが閉じるのを待つ）
-                    setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
-                }
-            };
-
-            link.addEventListener('click', handleNavigation);
-
-            // モバイル用タッチイベント
-            link.addEventListener('touchend', (e) => {
-                // 外部リンクはスキップ
-                const href = link.getAttribute('href');
-                if (!href.startsWith('#')) return;
-
-                e.preventDefault();
-                handleNavigation(e);
+          // 少し遅延させてからスクロール（メニューが閉じるのを待つ）
+          setTimeout(() => {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
-        });
-    }
+          }, 100);
+        }
+      };
+
+      link.addEventListener("click", handleNavigation);
+
+      // モバイル用タッチイベント
+      link.addEventListener("touchend", (e) => {
+        // 外部リンクはスキップ
+        const href = link.getAttribute("href");
+        if (!href.startsWith("#")) return;
+
+        e.preventDefault();
+        handleNavigation(e);
+      });
+    });
+  }
 }
 
 // ナビバーのスクロールエフェクト
 class NavbarScroll {
-    constructor() {
-        this.navbar = document.querySelector('.navbar');
-        this.lastScroll = 0;
+  constructor() {
+    this.navbar = document.querySelector(".navbar");
+    this.lastScroll = 0;
 
-        window.addEventListener('scroll', () => this.onScroll());
+    window.addEventListener("scroll", () => this.onScroll());
+  }
+
+  onScroll() {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 100) {
+      this.navbar.style.background = "rgba(10, 10, 15, 0.95)";
+    } else {
+      this.navbar.style.background = "rgba(10, 10, 15, 0.8)";
     }
 
-    onScroll() {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            this.navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-        } else {
-            this.navbar.style.background = 'rgba(10, 10, 15, 0.8)';
-        }
-
-        this.lastScroll = currentScroll;
-    }
+    this.lastScroll = currentScroll;
+  }
 }
 
 // アクティブナビゲーション（現在のセクションをハイライト）
 class ActiveNav {
-    constructor() {
-        this.sections = document.querySelectorAll('section[id]');
-        this.navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  constructor() {
+    this.sections = document.querySelectorAll("section[id]");
+    this.navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
-        // スクロールイベントでアクティブ状態を更新
-        window.addEventListener('scroll', () => this.updateActiveLink());
+    // スクロールイベントでアクティブ状態を更新
+    window.addEventListener("scroll", () => this.updateActiveLink());
 
-        // 初期状態を設定
-        this.updateActiveLink();
-    }
+    // 初期状態を設定
+    this.updateActiveLink();
+  }
 
-    updateActiveLink() {
-        const scrollPosition = window.scrollY + 150; // ヘッダーの高さを考慮
+  updateActiveLink() {
+    const scrollPosition = window.scrollY + 150; // ヘッダーの高さを考慮
 
-        this.sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+    this.sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // すべてのリンクからアクティブクラスを削除
-                this.navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-
-                // 現在のセクションに対応するリンクをアクティブに
-                const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        // すべてのリンクからアクティブクラスを削除
+        this.navLinks.forEach((link) => {
+          link.classList.remove("active");
         });
-    }
+
+        // 現在のセクションに対応するリンクをアクティブに
+        const activeLink = document.querySelector(
+          `.nav-links a[href="#${sectionId}"]`,
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+    });
+  }
 }
 
 // ============================================
 // ショッピングカートシステム
 // ============================================
 class CartSystem {
-    constructor() {
-        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
-        this.cartDrawer = document.querySelector('.cart-drawer');
-        this.cartOverlay = document.querySelector('.cart-overlay');
-        this.cartItemsContainer = document.querySelector('.cart-items');
-        this.totalElement = document.querySelector('.total-amount');
-        this.badgeElement = document.querySelector('.cart-badge');
-        this.isOpen = false;
+  constructor() {
+    this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+    this.cartDrawer = document.querySelector(".cart-drawer");
+    this.cartOverlay = document.querySelector(".cart-overlay");
+    this.cartItemsContainer = document.querySelector(".cart-items");
+    this.totalElement = document.querySelector(".total-amount");
+    this.badgeElement = document.querySelector(".cart-badge");
+    this.isOpen = false;
 
-        this.init();
+    this.init();
+  }
+
+  init() {
+    // カートボタン（開閉）
+    document
+      .querySelector(".cart-btn")
+      .addEventListener("click", () => this.toggle());
+    document
+      .querySelector(".cart-close")
+      .addEventListener("click", () => this.close());
+    this.cartOverlay.addEventListener("click", () => this.close());
+
+    // 「買い物を続ける」ボタン
+    document.body.addEventListener("click", (e) => {
+      if (e.target.classList.contains("continue-shopping")) {
+        this.close();
+      }
+    });
+
+    // 初期表示更新
+    this.updateUI();
+
+    // カート追加イベントのリスナー（動的要素対応のためdocumentに委譲）
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".add-to-cart-btn");
+      if (btn) {
+        const product = {
+          id: btn.dataset.id,
+          name: btn.dataset.name,
+          price: parseInt(btn.dataset.price),
+          image: btn.dataset.image,
+        };
+        this.addItem(product);
+        // フィードバック（ボタンのアニメーションなど）
+        this.animateButton(btn);
+      }
+    });
+
+    // 削除ボタンイベント
+    this.cartItemsContainer.addEventListener("click", (e) => {
+      if (e.target.closest(".remove-item")) {
+        const id = e.target.closest(".remove-item").dataset.id;
+        this.removeItem(id);
+      }
+    });
+  }
+
+  toggle() {
+    if (this.isOpen) this.close();
+    else this.open();
+  }
+
+  open() {
+    this.cartDrawer.classList.add("active");
+    this.cartOverlay.classList.add("active");
+    this.isOpen = true;
+    document.body.style.overflow = "hidden";
+  }
+
+  close() {
+    this.cartDrawer.classList.remove("active");
+    this.cartOverlay.classList.remove("active");
+    this.isOpen = false;
+    document.body.style.overflow = "";
+  }
+
+  addItem(product) {
+    // すでに存在するかチェック
+    const existingItem = this.cart.find((item) => item.id === product.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      this.cart.push({ ...product, quantity: 1 });
     }
+    this.save();
+    this.updateUI();
+    this.open(); // 追加したらカートを開く
+  }
 
-    init() {
-        // カートボタン（開閉）
-        document.querySelector('.cart-btn').addEventListener('click', () => this.toggle());
-        document.querySelector('.cart-close').addEventListener('click', () => this.close());
-        this.cartOverlay.addEventListener('click', () => this.close());
+  removeItem(id) {
+    this.cart = this.cart.filter((item) => item.id !== id);
+    this.save();
+    this.updateUI();
+  }
 
-        // 「買い物を続ける」ボタン
-        document.body.addEventListener('click', (e) => {
-            if (e.target.classList.contains('continue-shopping')) {
-                this.close();
-            }
-        });
+  save() {
+    localStorage.setItem("cart", JSON.stringify(this.cart));
+  }
 
-        // 初期表示更新
-        this.updateUI();
+  updateUI() {
+    // バッジ更新
+    const totalCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+    this.badgeElement.textContent = totalCount;
+    this.badgeElement.classList.toggle("visible", totalCount > 0);
 
-        // カート追加イベントのリスナー（動的要素対応のためdocumentに委譲）
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('.add-to-cart-btn');
-            if (btn) {
-                const product = {
-                    id: btn.dataset.id,
-                    name: btn.dataset.name,
-                    price: parseInt(btn.dataset.price),
-                    image: btn.dataset.image
-                };
-                this.addItem(product);
-                // フィードバック（ボタンのアニメーションなど）
-                this.animateButton(btn);
-            }
-        });
-
-        // 削除ボタンイベント
-        this.cartItemsContainer.addEventListener('click', (e) => {
-            if (e.target.closest('.remove-item')) {
-                const id = e.target.closest('.remove-item').dataset.id;
-                this.removeItem(id);
-            }
-        });
-    }
-
-    toggle() {
-        if (this.isOpen) this.close();
-        else this.open();
-    }
-
-    open() {
-        this.cartDrawer.classList.add('active');
-        this.cartOverlay.classList.add('active');
-        this.isOpen = true;
-        document.body.style.overflow = 'hidden';
-    }
-
-    close() {
-        this.cartDrawer.classList.remove('active');
-        this.cartOverlay.classList.remove('active');
-        this.isOpen = false;
-        document.body.style.overflow = '';
-    }
-
-    addItem(product) {
-        // すでに存在するかチェック
-        const existingItem = this.cart.find(item => item.id === product.id);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            this.cart.push({ ...product, quantity: 1 });
-        }
-        this.save();
-        this.updateUI();
-        this.open(); // 追加したらカートを開く
-    }
-
-    removeItem(id) {
-        this.cart = this.cart.filter(item => item.id !== id);
-        this.save();
-        this.updateUI();
-    }
-
-    save() {
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-    }
-
-    updateUI() {
-        // バッジ更新
-        const totalCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-        this.badgeElement.textContent = totalCount;
-        this.badgeElement.classList.toggle('visible', totalCount > 0);
-
-        // カート内アイテム描画
-        if (this.cart.length === 0) {
-            this.cartItemsContainer.innerHTML = `
+    // カート内アイテム描画
+    if (this.cart.length === 0) {
+      this.cartItemsContainer.innerHTML = `
                 <div class="empty-cart">
-                    <p>カートは空です</p>
-                    <button class="btn btn-secondary continue-shopping">買い物を続ける</button>
+                    <p data-i18n="cart.empty">カートは空です</p>
+                    <button class="btn btn-secondary continue-shopping" data-i18n="cart.continue">買い物を続ける</button>
                 </div>
             `;
-            this.totalElement.textContent = '$0';
-            return;
-        }
+      this.totalElement.textContent = "$0";
+      
+      // 動的コンテンツの翻訳を適用
+      if (window.i18n) window.i18n.updateDynamicContent();
+      return;
+    }
 
-        this.cartItemsContainer.innerHTML = this.cart.map(item => `
+    this.cartItemsContainer.innerHTML = this.cart
+      .map(
+        (item) => `
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                 <div class="cart-item-details">
                     <h4 class="cart-item-title">${item.name}</h4>
                     <div class="cart-item-price">$${item.price} x ${item.quantity}</div>
                 </div>
-                <button class="remove-item" data-id="${item.id}" aria-label="削除">&times;</button>
+                <button class="remove-item" data-id="${item.id}" aria-label="削除" data-i18n-aria-label="cart.remove">&times;</button>
             </div>
-        `).join('');
+        `,
+      )
+      .join("");
 
-        // 合計金額計算
-        const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        this.totalElement.textContent = `$${total}`;
-    }
+    // 合計金額計算
+    const total = this.cart.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0,
+    );
+    this.totalElement.textContent = `$${total}`;
 
-    animateButton(btn) {
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '✓ Added';
-        btn.classList.add('added');
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.classList.remove('added');
-        }, 2000);
-    }
+    // 動的コンテンツの翻訳を適用
+    if (window.i18n) window.i18n.updateDynamicContent();
+  }
+
+  animateButton(btn) {
+    const originalText = btn.innerHTML;
+    const langData = translations[window.i18n ? window.i18n.currentLang : 'ja'];
+    btn.innerHTML = `✓ ${langData['cart.added'] || 'Added'}`;
+    btn.classList.add("added");
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.classList.remove("added");
+    }, 2000);
+  }
 }
 
 // コンテンツローダー（JSONから読み込み）
 class ContentLoader {
-    constructor() {
-        this.loadContent();
+  constructor() {
+    this.loadContent();
+  }
+
+  async loadContent() {
+    try {
+      const response = await fetch("data/content.json");
+      const data = await response.json();
+
+      // 投稿数を更新
+      this.updateStats(data.stats);
+
+      // ギャラリーを更新 (JSONにカテゴリ情報がないため、HTMLの記述を優先)
+      // this.updateGallery(data.gallery);
+
+      console.log("📦 コンテンツをJSONから読み込みました");
+    } catch (error) {
+      console.log(
+        "ℹ️ content.jsonが見つかりません。デフォルト表示を使用します。",
+      );
     }
+  }
 
-    async loadContent() {
-        try {
-            const response = await fetch('data/content.json');
-            const data = await response.json();
+  updateStats(stats) {
+    if (!stats) return;
 
-            // 投稿数を更新
-            this.updateStats(data.stats);
-
-            // ギャラリーを更新 (JSONにカテゴリ情報がないため、HTMLの記述を優先)
-            // this.updateGallery(data.gallery);
-
-            console.log('📦 コンテンツをJSONから読み込みました');
-        } catch (error) {
-            console.log('ℹ️ content.jsonが見つかりません。デフォルト表示を使用します。');
-        }
+    // 投稿数を更新
+    const postNumber = document.querySelector(".stat-number");
+    if (postNumber && stats.posts) {
+      postNumber.textContent = stats.posts;
     }
+  }
 
-    updateStats(stats) {
-        if (!stats) return;
+  updateGallery(gallery) {
+    if (!gallery || gallery.length === 0) return;
 
-        // 投稿数を更新
-        const postNumber = document.querySelector('.stat-number');
-        if (postNumber && stats.posts) {
-            postNumber.textContent = stats.posts;
-        }
-    }
+    const galleryGrid = document.querySelector(".gallery-grid");
+    if (!galleryGrid) return;
 
-    updateGallery(gallery) {
-        if (!gallery || gallery.length === 0) return;
+    // ギャラリーをクリアして再構築
+    galleryGrid.innerHTML = "";
 
-        const galleryGrid = document.querySelector('.gallery-grid');
-        if (!galleryGrid) return;
-
-        // ギャラリーをクリアして再構築
-        galleryGrid.innerHTML = '';
-
-        gallery.forEach(item => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item glass-card';
-            galleryItem.innerHTML = `
+    gallery.forEach((item) => {
+      const galleryItem = document.createElement("div");
+      galleryItem.className = "gallery-item glass-card";
+      galleryItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" class="gallery-image">
                 <div class="gallery-overlay">
                     <span class="gallery-title">${item.title}</span>
                 </div>
             `;
-            galleryGrid.appendChild(galleryItem);
-        });
-    }
+      galleryGrid.appendChild(galleryItem);
+    });
+  }
 }
 
 // ============================================
 // ギャラリーフィルター（完全書き直し版）
 // ============================================
 class GalleryFilter {
-    constructor() {
-        this.filterBtns = document.querySelectorAll('.filter-btn');
-        this.galleryGrid = document.querySelector('.gallery-grid');
-        this.showMoreBtn = document.getElementById('show-more-btn');
-        this.showMoreContainer = document.querySelector('.gallery-show-more');
-        this.isExpanded = false;
-        this.currentFilter = 'all';
+  constructor() {
+    this.filterBtns = document.querySelectorAll(".filter-btn");
+    this.galleryGrid = document.querySelector(".gallery-grid");
+    this.showMoreBtn = document.getElementById("show-more-btn");
+    this.showMoreContainer = document.querySelector(".gallery-show-more");
+    this.isExpanded = false;
+    this.currentFilter = "all";
 
-        if (this.filterBtns.length > 0 && this.galleryGrid) {
-            this.init();
+    if (this.filterBtns.length > 0 && this.galleryGrid) {
+      this.init();
+    }
+  }
+
+  // ギャラリーの初期化
+  initialize() {
+    // 画像を遅延読み込み
+    this.lazyLoadImages();
+
+    // 3列に1列の割合でロックをかける (インデックスが 3の倍数 のアイテム)
+    // 例: 2, 5, 8... (0-indexed) -> 3番目, 6番目...
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    galleryItems.forEach((item, index) => {
+      // 3番目、6番目... をロック (index + 1) % 3 === 0
+      if ((index + 1) % 3 === 0) {
+        item.classList.add("locked");
+      }
+    });
+
+    // フィルターボタンのイベントリスナー
+    this.filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // アクティブクラスの切り替え
+        this.filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // フィルタリング実行
+        this.filterGallery(btn.dataset.filter);
+      });
+    });
+
+    // 表示ボタンのイベントリスナー（モバイル用）
+    if (this.showMoreBtn) {
+      this.showMoreBtn.addEventListener("click", () => {
+        this.toggleGallery();
+      });
+    }
+  }
+
+  init() {
+    console.log("🎨 GalleryFilter初期化");
+
+    // フィルターボタンにイベントリスナーを設定
+    this.filterBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.currentFilter = btn.dataset.filter;
+        console.log("🔍 フィルター:", this.currentFilter);
+        this.applyFilter();
+        this.setActiveButton(btn);
+      });
+    });
+
+    // もっと見るボタン
+    if (this.showMoreBtn) {
+      this.showMoreBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("📖 もっと見るクリック");
+        this.toggleShowMore();
+      });
+    }
+  }
+
+  applyFilter() {
+    const items = this.galleryGrid.querySelectorAll(".gallery-item");
+
+    items.forEach((item) => {
+      const category = item.dataset.category;
+      const isHiddenByDefault = item.classList.contains("gallery-hidden");
+      const matchesFilter =
+        this.currentFilter === "all" || category === this.currentFilter;
+
+      if (matchesFilter) {
+        // フィルターにマッチ
+        item.classList.remove("hidden");
+        // gallery-hiddenかつ非展開なら非表示のまま
+        if (isHiddenByDefault && !this.isExpanded) {
+          item.style.display = "none";
+        } else {
+          item.style.display = "";
         }
+      } else {
+        // フィルターにマッチしない → 非表示
+        item.classList.add("hidden");
+        item.style.display = "none";
+      }
+    });
+
+    this.updateShowMoreButton();
+  }
+
+  setActiveButton(activeBtn) {
+    this.filterBtns.forEach((btn) => btn.classList.remove("active"));
+    activeBtn.classList.add("active");
+  }
+
+  toggleShowMore() {
+    this.isExpanded = !this.isExpanded;
+    console.log("展開状態:", this.isExpanded);
+
+    const hiddenItems = this.galleryGrid.querySelectorAll(
+      ".gallery-item.gallery-hidden",
+    );
+
+    hiddenItems.forEach((item) => {
+      const category = item.dataset.category;
+      const matchesFilter =
+        this.currentFilter === "all" || category === this.currentFilter;
+
+      if (this.isExpanded && matchesFilter) {
+        item.style.display = "";
+        item.classList.add("gallery-shown");
+      } else {
+        item.style.display = "none";
+        item.classList.remove("gallery-shown");
+      }
+    });
+
+    // ボタンテキスト更新
+    if (this.showMoreBtn) {
+      const btnText = this.showMoreBtn.querySelector("span:not(.btn-icon)");
+      const btnIcon = this.showMoreBtn.querySelector(".btn-icon");
+      if (btnText)
+        btnText.textContent = this.isExpanded ? "閉じる" : "もっと見る";
+      if (btnIcon) btnIcon.textContent = this.isExpanded ? "↑" : "↓";
     }
+  }
 
-    // ギャラリーの初期化
-    initialize() {
-        // 画像を遅延読み込み
-        this.lazyLoadImages();
+  updateShowMoreButton() {
+    if (!this.showMoreContainer) return;
 
-        // 3列に1列の割合でロックをかける (インデックスが 3の倍数 のアイテム)
-        // 例: 2, 5, 8... (0-indexed) -> 3番目, 6番目...
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        galleryItems.forEach((item, index) => {
-            // 3番目、6番目... をロック (index + 1) % 3 === 0
-            if ((index + 1) % 3 === 0) {
-                item.classList.add('locked');
-            }
-        });
+    const hiddenItems = this.galleryGrid.querySelectorAll(
+      ".gallery-item.gallery-hidden",
+    );
+    let hasMatchingHidden = false;
 
-        // フィルターボタンのイベントリスナー
-        this.filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // アクティブクラスの切り替え
-                this.filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+    hiddenItems.forEach((item) => {
+      const category = item.dataset.category;
+      if (this.currentFilter === "all" || category === this.currentFilter) {
+        hasMatchingHidden = true;
+      }
+    });
 
-                // フィルタリング実行
-                this.filterGallery(btn.dataset.filter);
-            });
-        });
-
-        // 表示ボタンのイベントリスナー（モバイル用）
-        if (this.showMoreBtn) {
-            this.showMoreBtn.addEventListener('click', () => {
-                this.toggleGallery();
-            });
-        }
-    }
-
-    init() {
-        console.log('🎨 GalleryFilter初期化');
-
-        // フィルターボタンにイベントリスナーを設定
-        this.filterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.currentFilter = btn.dataset.filter;
-                console.log('🔍 フィルター:', this.currentFilter);
-                this.applyFilter();
-                this.setActiveButton(btn);
-            });
-        });
-
-        // もっと見るボタン
-        if (this.showMoreBtn) {
-            this.showMoreBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('📖 もっと見るクリック');
-                this.toggleShowMore();
-            });
-        }
-    }
-
-    applyFilter() {
-        const items = this.galleryGrid.querySelectorAll('.gallery-item');
-
-        items.forEach(item => {
-            const category = item.dataset.category;
-            const isHiddenByDefault = item.classList.contains('gallery-hidden');
-            const matchesFilter = (this.currentFilter === 'all' || category === this.currentFilter);
-
-            if (matchesFilter) {
-                // フィルターにマッチ
-                item.classList.remove('hidden');
-                // gallery-hiddenかつ非展開なら非表示のまま
-                if (isHiddenByDefault && !this.isExpanded) {
-                    item.style.display = 'none';
-                } else {
-                    item.style.display = '';
-                }
-            } else {
-                // フィルターにマッチしない → 非表示
-                item.classList.add('hidden');
-                item.style.display = 'none';
-            }
-        });
-
-        this.updateShowMoreButton();
-    }
-
-    setActiveButton(activeBtn) {
-        this.filterBtns.forEach(btn => btn.classList.remove('active'));
-        activeBtn.classList.add('active');
-    }
-
-    toggleShowMore() {
-        this.isExpanded = !this.isExpanded;
-        console.log('展開状態:', this.isExpanded);
-
-        const hiddenItems = this.galleryGrid.querySelectorAll('.gallery-item.gallery-hidden');
-
-        hiddenItems.forEach(item => {
-            const category = item.dataset.category;
-            const matchesFilter = (this.currentFilter === 'all' || category === this.currentFilter);
-
-            if (this.isExpanded && matchesFilter) {
-                item.style.display = '';
-                item.classList.add('gallery-shown');
-            } else {
-                item.style.display = 'none';
-                item.classList.remove('gallery-shown');
-            }
-        });
-
-        // ボタンテキスト更新
-        if (this.showMoreBtn) {
-            const btnText = this.showMoreBtn.querySelector('span:not(.btn-icon)');
-            const btnIcon = this.showMoreBtn.querySelector('.btn-icon');
-            if (btnText) btnText.textContent = this.isExpanded ? '閉じる' : 'もっと見る';
-            if (btnIcon) btnIcon.textContent = this.isExpanded ? '↑' : '↓';
-        }
-    }
-
-    updateShowMoreButton() {
-        if (!this.showMoreContainer) return;
-
-        const hiddenItems = this.galleryGrid.querySelectorAll('.gallery-item.gallery-hidden');
-        let hasMatchingHidden = false;
-
-        hiddenItems.forEach(item => {
-            const category = item.dataset.category;
-            if (this.currentFilter === 'all' || category === this.currentFilter) {
-                hasMatchingHidden = true;
-            }
-        });
-
-        this.showMoreContainer.style.display = hasMatchingHidden ? '' : 'none';
-    }
+    this.showMoreContainer.style.display = hasMatchingHidden ? "" : "none";
+  }
 }
 
 // ============================================
 // ギャラリーシェア（カード上のボタン）
 // ============================================
 class GalleryShare {
-    constructor() {
-        this.items = document.querySelectorAll('.gallery-item');
-        if (this.items.length > 0) {
-            this.init();
-        }
+  constructor() {
+    this.items = document.querySelectorAll(".gallery-item");
+    if (this.items.length > 0) {
+      this.init();
     }
+  }
 
-    init() {
-        // 各アイテムにシェアボタンを注入
-        this.items.forEach(item => {
-            const overlay = item.querySelector('.gallery-overlay');
-            if (overlay) {
-                this.injectShareButtons(overlay, item);
-            }
-        });
+  init() {
+    // 各アイテムにシェアボタンを注入
+    this.items.forEach((item) => {
+      const overlay = item.querySelector(".gallery-overlay");
+      if (overlay) {
+        this.injectShareButtons(overlay, item);
+      }
+    });
 
-        // イベントリスナー（委譲）
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('.gallery-share-btn');
-            if (btn) {
-                e.preventDefault();
-                e.stopPropagation(); // Lightboxが開かないようにする
-                this.handleShare(btn);
-            }
-        });
-    }
+    // イベントリスナー（委譲）
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".gallery-share-btn");
+      if (btn) {
+        e.preventDefault();
+        e.stopPropagation(); // Lightboxが開かないようにする
+        this.handleShare(btn);
+      }
+    });
+  }
 
-    injectShareButtons(overlay, item) {
-        // 既存のボタンがあれば追加しない
-        if (overlay.querySelector('.gallery-actions')) return;
+  injectShareButtons(overlay, item) {
+    // 既存のボタンがあれば追加しない
+    if (overlay.querySelector(".gallery-actions")) return;
 
-        const title = item.querySelector('.gallery-title')?.textContent || '';
-        // 画像パス解決（相対パスを絶対パスにするか、そのまま使うか）
-        // ここではOGP用ではなく、テキストシェアの一部として扱うため、ページURLをメインにする
+    const title = item.querySelector(".gallery-title")?.textContent || "";
+    // 画像パス解決（相対パスを絶対パスにするか、そのまま使うか）
+    // ここではOGP用ではなく、テキストシェアの一部として扱うため、ページURLをメインにする
 
-        const actionsHtml = `
+    const actionsHtml = `
             <div class="gallery-actions">
                 <button class="gallery-share-btn" data-platform="instagram" aria-label="Visit Instagram">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -1081,390 +1359,401 @@ class GalleryShare {
             </div>
         `;
 
-        overlay.insertAdjacentHTML('beforeend', actionsHtml);
-    }
+    overlay.insertAdjacentHTML("beforeend", actionsHtml);
+  }
 
-    handleShare(btn) {
-        const platform = btn.dataset.platform;
+  handleShare(btn) {
+    const platform = btn.dataset.platform;
 
-        if (platform === 'instagram') {
-            window.open('https://www.instagram.com/aile_bellezza/?locale=ja_JP', '_blank');
-        } else if (platform === 'threads') {
-            window.open('https://www.threads.net/@take_ai_le?hl=ja', '_blank');
-        }
+    if (platform === "instagram") {
+      window.open(
+        "https://www.instagram.com/aile_bellezza/?locale=ja_JP",
+        "_blank",
+      );
+    } else if (platform === "threads") {
+      window.open("https://www.threads.net/@take_ai_le?hl=ja", "_blank");
     }
+  }
 }
 
 // ============================================
 // ライトボックス
 // ============================================
 class Lightbox {
-    constructor() {
-        this.lightbox = document.getElementById('lightbox');
-        this.lightboxImage = document.querySelector('.lightbox-image');
-        this.lightboxCaption = document.querySelector('.lightbox-caption');
-        this.galleryItems = document.querySelectorAll('.gallery-item');
-        this.currentIndex = 0;
-        this.images = [];
+  constructor() {
+    this.lightbox = document.getElementById("lightbox");
+    this.lightboxImage = document.querySelector(".lightbox-image");
+    this.lightboxCaption = document.querySelector(".lightbox-caption");
+    this.galleryItems = document.querySelectorAll(".gallery-item");
+    this.currentIndex = 0;
+    this.images = [];
 
-        if (this.lightbox && this.galleryItems.length > 0) {
-            this.init();
-        }
+    if (this.lightbox && this.galleryItems.length > 0) {
+      this.init();
     }
+  }
 
-    init() {
-        // ロックされたアイテムとロックされていないアイテムを分離
-        const allItems = Array.from(this.galleryItems);
-        const unlockedItems = allItems.filter(item => !item.classList.contains('locked'));
+  init() {
+    // ロックされたアイテムとロックされていないアイテムを分離
+    const allItems = Array.from(this.galleryItems);
+    const unlockedItems = allItems.filter(
+      (item) => !item.classList.contains("locked"),
+    );
 
-        // ロックされたアイテムにはPatreon誘導イベントを設定
-        allItems.filter(item => item.classList.contains('locked')).forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open('https://www.patreon.com/aile_bellezza', '_blank');
-            });
+    // ロックされたアイテムにはPatreon誘導イベントを設定
+    allItems
+      .filter((item) => item.classList.contains("locked"))
+      .forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open("https://www.patreon.com/aile_bellezza", "_blank");
         });
+      });
 
-        // 画像配列を作成（ロックされていないものだけ）
-        unlockedItems.forEach((item, index) => {
-            const img = item.querySelector('.gallery-image');
-            const title = item.querySelector('.gallery-title');
-            this.images.push({
-                src: img.src,
-                alt: img.alt,
-                title: title ? title.textContent : ''
-            });
+    // 画像配列を作成（ロックされていないものだけ）
+    unlockedItems.forEach((item, index) => {
+      const img = item.querySelector(".gallery-image");
+      const title = item.querySelector(".gallery-title");
+      this.images.push({
+        src: img.src,
+        alt: img.alt,
+        title: title ? title.textContent : "",
+      });
 
-            // クリックイベント
-            item.addEventListener('click', () => this.open(index));
+      // クリックイベント
+      item.addEventListener("click", () => this.open(index));
+    });
+
+    // 閉じるボタン
+    const closeBtn = document.querySelector(".lightbox-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => this.close());
+    }
+
+    // 前後ボタン
+    const prevBtn = document.querySelector(".lightbox-prev");
+    const nextBtn = document.querySelector(".lightbox-next");
+    if (prevBtn) prevBtn.addEventListener("click", () => this.prev());
+    if (nextBtn) nextBtn.addEventListener("click", () => this.next());
+
+    // 背景クリックで閉じる
+    this.lightbox.addEventListener("click", (e) => {
+      if (e.target === this.lightbox) {
+        this.close();
+      }
+    });
+
+    // キーボード操作
+    document.addEventListener("keydown", (e) => {
+      if (!this.lightbox.classList.contains("active")) return;
+
+      switch (e.key) {
+        case "Escape":
+          this.close();
+          break;
+        case "ArrowLeft":
+          this.prev();
+          break;
+        case "ArrowRight":
+          this.next();
+          break;
+      }
+    });
+
+    // シェアボタン
+    this.initShareButtons();
+  }
+
+  initShareButtons() {
+    const shareButtons = document.querySelectorAll(".share-btn");
+    shareButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const platform = btn.dataset.platform;
+        this.share(platform);
+      });
+    });
+  }
+
+  share(platform) {
+    const currentImage = this.images[this.currentIndex];
+    const pageUrl = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(`${currentImage.title} | Aile Bellezza`);
+
+    switch (platform) {
+      case "instagram":
+        window.open(
+          "https://www.instagram.com/aile_bellezza/?locale=ja_JP",
+          "_blank",
+        );
+        break;
+      case "threads":
+        window.open("https://www.threads.net/@take_ai_le?hl=ja", "_blank");
+        break;
+      case "copy":
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const copyBtn = document.querySelector(".share-copy");
+          copyBtn.classList.add("copied");
+          setTimeout(() => {
+            copyBtn.classList.remove("copied");
+          }, 2000);
         });
+        break;
+    }
+  }
 
-        // 閉じるボタン
-        const closeBtn = document.querySelector('.lightbox-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => this.close());
-        }
+  // ライトボックスを開く
+  open(index) {
+    const items = Array.from(document.querySelectorAll(".gallery-item"));
 
-        // 前後ボタン
-        const prevBtn = document.querySelector('.lightbox-prev');
-        const nextBtn = document.querySelector('.lightbox-next');
-        if (prevBtn) prevBtn.addEventListener('click', () => this.prev());
-        if (nextBtn) nextBtn.addEventListener('click', () => this.next());
-
-        // 背景クリックで閉じる
-        this.lightbox.addEventListener('click', (e) => {
-            if (e.target === this.lightbox) {
-                this.close();
-            }
-        });
-
-        // キーボード操作
-        document.addEventListener('keydown', (e) => {
-            if (!this.lightbox.classList.contains('active')) return;
-
-            switch (e.key) {
-                case 'Escape':
-                    this.close();
-                    break;
-                case 'ArrowLeft':
-                    this.prev();
-                    break;
-                case 'ArrowRight':
-                    this.next();
-                    break;
-            }
-        });
-
-        // シェアボタン
-        this.initShareButtons();
+    // ロックされたアイテムの場合はアンロックモーダルを開く
+    if (items[index].classList.contains("locked")) {
+      this.openUnlockModal();
+      return;
     }
 
-    initShareButtons() {
-        const shareButtons = document.querySelectorAll('.share-btn');
-        shareButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const platform = btn.dataset.platform;
-                this.share(platform);
-            });
-        });
+    this.currentIndex = index;
+    this.updateImage();
+    this.lightbox.classList.add("active");
+    this.lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden"; // 背景スクロール固定
+  }
+
+  // アンロックモーダルを開く
+  openUnlockModal() {
+    const unlockModal = document.getElementById("unlock-modal");
+    if (unlockModal) {
+      unlockModal.classList.add("active");
+      unlockModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // 閉じるボタンのイベント
+      const closeBtns = unlockModal.querySelectorAll(".cancel-unlock");
+      closeBtns.forEach((btn) => {
+        btn.onclick = () => {
+          unlockModal.classList.remove("active");
+          unlockModal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        };
+      });
     }
+  }
 
-    share(platform) {
-        const currentImage = this.images[this.currentIndex];
-        const pageUrl = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent(`${currentImage.title} | Aile Bellezza`);
+  close() {
+    this.lightbox.classList.remove("active");
+    this.lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 
-        switch (platform) {
-            case 'instagram':
-                window.open('https://www.instagram.com/aile_bellezza/?locale=ja_JP', '_blank');
-                break;
-            case 'threads':
-                window.open('https://www.threads.net/@take_ai_le?hl=ja', '_blank');
-                break;
-            case 'copy':
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    const copyBtn = document.querySelector('.share-copy');
-                    copyBtn.classList.add('copied');
-                    setTimeout(() => {
-                        copyBtn.classList.remove('copied');
-                    }, 2000);
-                });
-                break;
-        }
-    }
+  prev() {
+    // 非表示でないアイテムのみを対象に
+    this.currentIndex =
+      (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.updateImage();
+  }
 
-    // ライトボックスを開く
-    open(index) {
-        const items = Array.from(document.querySelectorAll('.gallery-item'));
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    this.updateImage();
+  }
 
-        // ロックされたアイテムの場合はアンロックモーダルを開く
-        if (items[index].classList.contains('locked')) {
-            this.openUnlockModal();
-            return;
-        }
-
-        this.currentIndex = index;
-        this.updateImage();
-        this.lightbox.classList.add('active');
-        this.lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // 背景スクロール固定
-    }
-
-    // アンロックモーダルを開く
-    openUnlockModal() {
-        const unlockModal = document.getElementById('unlock-modal');
-        if (unlockModal) {
-            unlockModal.classList.add('active');
-            unlockModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-
-            // 閉じるボタンのイベント
-            const closeBtns = unlockModal.querySelectorAll('.cancel-unlock');
-            closeBtns.forEach(btn => {
-                btn.onclick = () => {
-                    unlockModal.classList.remove('active');
-                    unlockModal.setAttribute('aria-hidden', 'true');
-                    document.body.style.overflow = '';
-                };
-            });
-        }
-    }
-
-    close() {
-        this.lightbox.classList.remove('active');
-        this.lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    }
-
-    prev() {
-        // 非表示でないアイテムのみを対象に
-        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-        this.updateImage();
-    }
-
-    next() {
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
-        this.updateImage();
-    }
-
-    updateImage() {
-        const image = this.images[this.currentIndex];
-        this.lightboxImage.src = image.src;
-        this.lightboxImage.alt = image.alt;
-        this.lightboxCaption.textContent = image.title;
-    }
+  updateImage() {
+    const image = this.images[this.currentIndex];
+    this.lightboxImage.src = image.src;
+    this.lightboxImage.alt = image.alt;
+    this.lightboxCaption.textContent = image.title;
+  }
 }
 
 // 初期化
-document.addEventListener('DOMContentLoaded', () => {
-    // ローディング画面を非表示にする
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-        // ローディングアニメーション完了後に非表示
-        setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-        }, 1500); // 1.5秒後にフェードアウト
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  // ローディング画面を非表示にする
+  const loadingScreen = document.getElementById("loading-screen");
+  if (loadingScreen) {
+    // ローディングアニメーション完了後に非表示
+    setTimeout(() => {
+      loadingScreen.classList.add("hidden");
+    }, 1500); // 1.5秒後にフェードアウト
+  }
 
-    // パーティクルシステムを初期化
-    const canvas = document.getElementById('particles');
-    if (canvas) {
-        new ParticleSystem(canvas);
-    }
+  // パーティクルシステムを初期化
+  const canvas = document.getElementById("particles");
+  if (canvas) {
+    new ParticleSystem(canvas);
+  }
 
-    // 各コンポーネントを初期化
-    new ScrollAnimator();
-    window.mobileMenu = new MobileMenu(); // グローバルに保存
-    new SmoothScroll();
-    new NavbarScroll();
-    new ActiveNav(); // アクティブナビゲーション
-    // new ContentLoader(); // JSONからコンテンツを読み込み (HTMLの静的データを優先するため無効化)
-    new I18n(); // 多言語対応システム
-    new HeroSlider(); // ヒーロースライドショー
-    new GalleryFilter(); // ギャラリーフィルター
-    new GalleryShare(); // ギャラリーシェアボタン
-    new Lightbox(); // ライトボックス
-    new CartSystem(); // カートシステム
-    new NewsletterForm(); // ニュースレターフォーム
-    new MouseStalker(); // マウスストーカー
-    new MouseStalker(); // マウスストーカー
-    new FloatingCTA(); // フローティングCTA
-    new StatsUpdater(); // 統計更新
-    new ComparisonSlider(); // 比較スライダー
+  // 各コンポーネントを初期化
+  new ScrollAnimator();
+  window.mobileMenu = new MobileMenu(); // グローバルに保存
+  new SmoothScroll();
+  new NavbarScroll();
+  new ActiveNav(); // アクティブナビゲーション
+  // new ContentLoader(); // JSONからコンテンツを読み込み (HTMLの静的データを優先するため無効化)
+  window.i18n = new I18n(); // 多言語対応システム
+  new HeroSlider(); // ヒーロースライドショー
+  new GalleryFilter(); // ギャラリーフィルター
+  new GalleryShare(); // ギャラリーシェアボタン
+  new Lightbox(); // ライトボックス
+  new CartSystem(); // カートシステム
+  new NewsletterForm(); // ニュースレターフォーム
+  new MouseStalker(); // マウスストーカー
+  new MouseStalker(); // マウスストーカー
+  new FloatingCTA(); // フローティングCTA
+  new StatsUpdater(); // 統計更新
+  new ComparisonSlider(); // 比較スライダー
 
-    console.log('✨ Aile Bellezza Landing Page Initialized');
+  console.log("✨ Aile Bellezza Landing Page Initialized");
 });
 
 // ============================================
 // マウスストーカー（光の粒子）
 // ============================================
 class MouseStalker {
-    constructor() {
-        // PCのみ有効（タッチデバイスでは無効）
-        if (window.matchMedia('(hover: hover)').matches) {
-            this.init();
-        }
+  constructor() {
+    // PCのみ有効（タッチデバイスでは無効）
+    if (window.matchMedia("(hover: hover)").matches) {
+      this.init();
+    }
+  }
+
+  init() {
+    this.cursor = document.createElement("div");
+    this.cursor.classList.add("cursor-stalker");
+    document.body.appendChild(this.cursor);
+
+    this.lastX = 0;
+    this.lastY = 0;
+
+    document.addEventListener("mousemove", (e) => this.onMouseMove(e));
+
+    // リンクホバー時のエフェクト拡大（オプション）
+    // const links = document.querySelectorAll('a, button');
+    // links.forEach(link => {
+    //     link.addEventListener('mouseenter', () => this.cursor.classList.add('hover'));
+    //     link.addEventListener('mouseleave', () => this.cursor.classList.remove('hover'));
+    // });
+  }
+
+  onMouseMove(e) {
+    this.cursor.style.left = e.clientX + "px";
+    this.cursor.style.top = e.clientY + "px";
+
+    // 勢いがある時だけパーティクル生成
+    const dist = Math.hypot(e.clientX - this.lastX, e.clientY - this.lastY);
+    if (dist > 5) {
+      this.createParticle(e.clientX, e.clientY);
     }
 
-    init() {
-        this.cursor = document.createElement('div');
-        this.cursor.classList.add('cursor-stalker');
-        document.body.appendChild(this.cursor);
+    this.lastX = e.clientX;
+    this.lastY = e.clientY;
+  }
 
-        this.lastX = 0;
-        this.lastY = 0;
+  createParticle(x, y) {
+    if (Math.random() > 0.2) return; // 生成頻度調整
 
-        document.addEventListener('mousemove', (e) => this.onMouseMove(e));
+    const particle = document.createElement("div");
+    particle.classList.add("cursor-particle");
+    particle.style.left = x + "px";
+    particle.style.top = y + "px";
 
-        // リンクホバー時のエフェクト拡大（オプション）
-        // const links = document.querySelectorAll('a, button');
-        // links.forEach(link => {
-        //     link.addEventListener('mouseenter', () => this.cursor.classList.add('hover'));
-        //     link.addEventListener('mouseleave', () => this.cursor.classList.remove('hover'));
-        // });
-    }
+    document.body.appendChild(particle);
 
-    onMouseMove(e) {
-        this.cursor.style.left = e.clientX + 'px';
-        this.cursor.style.top = e.clientY + 'px';
-
-        // 勢いがある時だけパーティクル生成
-        const dist = Math.hypot(e.clientX - this.lastX, e.clientY - this.lastY);
-        if (dist > 5) {
-            this.createParticle(e.clientX, e.clientY);
-        }
-
-        this.lastX = e.clientX;
-        this.lastY = e.clientY;
-    }
-
-    createParticle(x, y) {
-        if (Math.random() > 0.2) return; // 生成頻度調整
-
-        const particle = document.createElement('div');
-        particle.classList.add('cursor-particle');
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-
-        document.body.appendChild(particle);
-
-        setTimeout(() => {
-            particle.remove();
-        }, 1000);
-    }
+    setTimeout(() => {
+      particle.remove();
+    }, 1000);
+  }
 }
 
 // ============================================
 // ニュースレターフォーム
 // ============================================
 class NewsletterForm {
-    constructor() {
-        this.form = document.getElementById('newsletter-form');
-        if (this.form) {
-            this.init();
-        }
+  constructor() {
+    this.form = document.getElementById("newsletter-form");
+    if (this.form) {
+      this.init();
+    }
+  }
+
+  init() {
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this.form);
+    const submitBtn = this.form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+
+    // 送信中の表示
+    submitBtn.innerHTML = "<span>Sending...</span>";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(this.form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        // 成功時
+        this.showSuccess();
+        this.form.reset();
+      } else {
+        // エラー時
+        this.showError();
+      }
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      this.showError();
     }
 
-    init() {
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    // ボタンをリセット
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }
+
+  showSuccess() {
+    const successMsg = document.querySelector(".newsletter-success");
+    if (successMsg) {
+      successMsg.style.display = "block";
+      // 5秒後に非表示
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 5000);
     }
+  }
 
-    async handleSubmit(e) {
-        e.preventDefault();
-
-        const formData = new FormData(this.form);
-        const submitBtn = this.form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        // 送信中の表示
-        submitBtn.innerHTML = '<span>Sending...</span>';
-        submitBtn.disabled = true;
-
-        try {
-            const response = await fetch(this.form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // 成功時
-                this.showSuccess();
-                this.form.reset();
-            } else {
-                // エラー時
-                this.showError();
-            }
-        } catch (error) {
-            console.error('Newsletter submission error:', error);
-            this.showError();
-        }
-
-        // ボタンをリセット
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }
-
-    showSuccess() {
-        const successMsg = document.querySelector('.newsletter-success');
-        if (successMsg) {
-            successMsg.style.display = 'block';
-            // 5秒後に非表示
-            setTimeout(() => {
-                successMsg.style.display = 'none';
-            }, 5000);
-        }
-    }
-
-    showError() {
-        alert('送信に失敗しました。もう一度お試しください。');
-    }
+  showError() {
+    alert("送信に失敗しました。もう一度お試しください。");
+  }
 }
 
 // ============================================
 // フローティングCTA
 // ============================================
 class FloatingCTA {
-    constructor() {
-        this.cta = document.querySelector('.floating-cta');
-        if (this.cta) {
-            window.addEventListener('scroll', () => this.toggle());
-            // 初期状態チェック
-            this.toggle();
-        }
+  constructor() {
+    this.cta = document.querySelector(".floating-cta");
+    if (this.cta) {
+      window.addEventListener("scroll", () => this.toggle());
+      // 初期状態チェック
+      this.toggle();
     }
+  }
 
-    toggle() {
-        if (window.scrollY > 500) {
-            this.cta.classList.add('visible');
-        } else {
-            this.cta.classList.remove('visible');
-        }
+  toggle() {
+    if (window.scrollY > 500) {
+      this.cta.classList.add("visible");
+    } else {
+      this.cta.classList.remove("visible");
     }
+  }
 }
 // ============================================
 // 統計情報の自動更新
@@ -1473,47 +1762,47 @@ class FloatingCTA {
 // 統計情報の自動更新
 // ============================================
 class StatsUpdater {
-    constructor() {
-        this.postCountEl = document.getElementById('post-count');
-        // フォールバック用のベースカウント（サイトに未掲載の過去作品などを含む）
-        this.fallbackBaseCount = 106;
-        if (this.postCountEl) {
-            this.init();
-        }
+  constructor() {
+    this.postCountEl = document.getElementById("post-count");
+    // フォールバック用のベースカウント（サイトに未掲載の過去作品などを含む）
+    this.fallbackBaseCount = 106;
+    if (this.postCountEl) {
+      this.init();
     }
+  }
 
-    async init() {
-        try {
-            // JSONから最新の投稿数を取得
-            const response = await fetch('data/stats.json');
-            if (!response.ok) throw new Error('Stats fetch failed');
+  async init() {
+    try {
+      // JSONから最新の投稿数を取得
+      const response = await fetch("data/stats.json");
+      if (!response.ok) throw new Error("Stats fetch failed");
 
-            const data = await response.json();
-            const count = data.postCount;
+      const data = await response.json();
+      const count = data.postCount;
 
-            this.animateValue(this.postCountEl, 100, count, 2000);
-        } catch (error) {
-            console.warn('Failed to fetch stats, using fallback logic:', error);
-            this.updateFallback();
-        }
+      this.animateValue(this.postCountEl, 100, count, 2000);
+    } catch (error) {
+      console.warn("Failed to fetch stats, using fallback logic:", error);
+      this.updateFallback();
     }
+  }
 
-    updateFallback() {
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const count = this.fallbackBaseCount + galleryItems.length;
-        this.animateValue(this.postCountEl, 100, count, 2000);
-    }
+  updateFallback() {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    const count = this.fallbackBaseCount + galleryItems.length;
+    this.animateValue(this.postCountEl, 100, count, 2000);
+  }
 
-    animateValue(obj, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            obj.innerHTML = Math.floor(progress * (end - start) + start) + '+';
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
+  animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start) + "+";
+      if (progress < 1) {
         window.requestAnimationFrame(step);
-    }
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
 }

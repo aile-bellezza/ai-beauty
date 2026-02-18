@@ -2934,3 +2934,475 @@ section {
     /* Success Green */
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
+
+/* ============================================
+   VIPロック機能 (.vip-locked)
+   ============================================ */
+.gallery-item.vip-locked {
+    cursor: pointer;
+    text-decoration: none; /* Link reset */
+    display: block; /* Ensure it behaves like a block */
+}
+
+.gallery-item.vip-locked .gallery-image {
+    filter: blur(10px); /* Slightly stronger blur */
+    transform: scale(1.1);
+}
+
+.gallery-item.vip-locked .gallery-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+    pointer-events: none; /* Let clicks pass through to the anchor */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.gallery-item.vip-locked:hover .gallery-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.vip-lock-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    color: white;
+    text-align: center;
+    z-index: 10;
+    transform: translateY(0);
+    transition: transform var(--transition-normal);
+}
+
+.gallery-item.vip-locked:hover .vip-lock-content {
+    transform: scale(1.05);
+}
+
+.vip-lock-icon {
+    font-size: 3.5rem;
+    color: var(--color-accent-secondary); /* Cyber Cyan */
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
+    animation: pulse-lock 2s infinite ease-in-out;
+}
+
+@keyframes pulse-lock {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.vip-btn {
+    margin-top: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 15px rgba(90, 79, 207, 0.5);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.gallery-item.vip-locked:hover .vip-btn {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(90, 79, 207, 0.7);
+}
+
+/* Hide normal gallery overlay elements for vip-locked */
+.gallery-item.vip-locked .gallery-title,
+.gallery-item.vip-locked .gallery-zoom,
+.gallery-item.vip-locked .gallery-actions {
+    display: none !important;
+/* ============================================
+   Featured Section (New)
+   ============================================ */
+.featured-section {
+    padding: var(--space-4xl) var(--space-xl);
+    background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(20,20,30,0.5) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.featured-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transform: perspective(1000px) rotateY(10deg);
+    transition: transform 0.5s ease;
+}
+
+.featured-image-wrapper:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.featured-text {
+    padding: var(--space-xl);
+}
+
+.featured-label {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: var(--space-md);
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+
+.featured-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(to right, #fff, #ffcccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.featured-description {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .featured-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .featured-image-wrapper {
+        transform: none;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .featured-title {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   Masonry Gallery (New)
+   ============================================ */
+.masonry-grid {
+    column-count: 3;
+    column-gap: var(--space-md);
+    padding: var(--space-md);
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+
+/* ============================================
+   Featured Section (New)
+   ============================================ */
+.featured-section {
+    padding: var(--space-4xl) var(--space-xl);
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(20, 20, 30, 0.5) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.featured-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: perspective(1000px) rotateY(10deg);
+    transition: transform 0.5s ease;
+}
+
+.featured-image-wrapper:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.featured-text {
+    padding: var(--space-xl);
+}
+
+.featured-label {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: var(--space-md);
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+
+.featured-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(to right, #fff, #ffcccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.featured-description {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .featured-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .featured-image-wrapper {
+        transform: none;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .featured-title {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   Masonry Gallery (New)
+   ============================================ */
+.masonry-grid {
+    column-count: 3;
+    column-gap: var(--space-md);
+    padding: var(--space-md);
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+/* ============================================
+   Shopセクション (デジタル写真集)
+   ============================================ */
+.shop-section {
+    padding: var(--space-4xl) var(--space-xl);
+    text-align: center;
+    position: relative;
+    background-image: url('images/shop-bg.png'); /* ユーザーによる配置が必要 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.shop-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 15, 0.7); /* 画像が見えるように少し透過度を調整 */
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.shop-section .container,
+.shop-section .section-header,
+.shop-section .shop-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.shop-card {
+    padding: var(--space-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--glass-shadow), 0 0 20px rgba(90, 79, 207, 0.2);
+    border-color: rgba(90, 79, 207, 0.4);
+}
+
+.shop-icon {
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-secondary);
+}
+
+.shop-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.shop-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    font-size: 0.95rem;
+}
+
+.shop-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Platform specific colors for buttons (enhanced) */
+.shop-btn.booth {
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 15px rgba(90, 79, 207, 0.4);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.shop-btn.booth:hover {
+    box-shadow: 0 8px 25px rgba(90, 79, 207, 0.6);
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* ============================================
+   Floating CTA Enhancement
+   ============================================ */
+.floating-cta {
+    animation: float-pulse 3s infinite ease-in-out;
+}
+
+@keyframes float-pulse {
+    0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 5px 20px rgba(90, 79, 207, 0.4); }
+    50% { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(90, 79, 207, 0.6); }
+}
+
+.floating-cta:hover {
+    animation: none; /* Stop animation on hover */
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* ============================================
+   Gallery Hover Enhancement
+   ============================================ */
+.gallery-item {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(90, 79, 207, 0.2);
+    z-index: 5;
+}
+
+/* Ensure locked items don't scale too much to conflict with existing hover */
+.gallery-item.vip-locked:hover {
+    transform: scale(1.02); /* Slightly less movement for locked */
+}

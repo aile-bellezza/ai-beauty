@@ -92,11 +92,11 @@
                 <span class="lang-divider">|</span>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
-            <button class="cart-btn" aria-label="カートを開く">
+            <button class="cart-btn" aria-label="カートを開く" data-i18n-aria-label="aria.cart">
                 <span class="cart-icon">🛒</span>
                 <span class="cart-badge">0</span>
             </button>
-            <button class="mobile-menu-btn" aria-label="メニューを開く">
+            <button class="mobile-menu-btn" aria-label="メニューを開く" data-i18n-aria-label="aria.menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -150,25 +150,54 @@
         </div>
     </section>
 
+    <!-- Featured Section (New) -->
+    <section id="featured" class="featured-section">
+        <div class="container featured-content">
+            <div class="featured-image-wrapper">
+                <!-- Using gallery image as cover placeholder -->
+                <img src="images/gallery-1.png" alt="Summer Breeze Photobook" class="featured-image">
+            </div>
+            <div class="featured-text">
+                <span class="featured-label" data-i18n="featured.label">New Release</span>
+                <h2 class="featured-title" data-i18n="featured.title">Summer Breeze</h2>
+                <div class="rating">
+                    <i class="fas fa-star" style="color:#ffd700;"></i>
+                    <i class="fas fa-star" style="color:#ffd700;"></i>
+                    <i class="fas fa-star" style="color:#ffd700;"></i>
+                    <i class="fas fa-star" style="color:#ffd700;"></i>
+                    <i class="fas fa-star" style="color:#ffd700;"></i>
+                </div>
+                <p class="featured-description" data-i18n="featured.description">
+                    眩しい太陽と潮風を感じる、AILE史上最も開放的な一冊。<br>
+                    未公開カット50枚以上を含む、彼女の素顔に迫るサマーコレクション。
+                </p>
+                <a href="#plans" class="btn btn-primary btn-glow">
+                    <span class="btn-icon">📖</span>
+                    <span data-i18n="featured.btn_read">今すぐ読む</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- アップスケーリング比較セクション -->
     <section id="upscaling" class="upscaling-tech">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">AI Technology</span>
-                <h2 class="section-title">AI Upscaling & Excellence</h2>
-                <p class="section-subtitle">最先端のAI高画質化技術により、細部まで鮮明な美しさを実現</p>
+                <span class="section-tag" data-i18n="upscaling.tag">AI Technology</span>
+                <h2 class="section-title" data-i18n="upscaling.title">AI Upscaling & Excellence</h2>
+                <p class="section-subtitle" data-i18n="upscaling.subtitle">最先端のAI高画質化技術により、細部まで鮮明な美しさを実現</p>
             </div>
             <div class="upscaling-comparison">
                 <div class="comparison-container glass-card">
                     <div class="comparison-image-wrapper">
                         <!-- After Image (High Quality) -->
-                        <img src="images/gallery-21.png" alt="High Quality" class="comp-img after">
-                        <span class="comp-badge badge-after">4K Ultra HD</span>
+                        <img src="img/after.jpg" alt="High Quality" class="comp-img after">
+                        <span class="comp-badge badge-after" data-i18n="upscaling.badge_high">4K Ultra HD</span>
 
-                        <!-- Before Image (Low Quality - Simulated via CSS) -->
+                        <!-- Before Image (Low Quality) -->
                         <div class="comp-overlay">
-                            <img src="images/gallery-21.png" alt="Low Quality" class="comp-img before">
-                            <span class="comp-badge badge-before">SNS Quality</span>
+                            <img src="img/before.jpg" alt="Low Quality" class="comp-img before">
+                            <span class="comp-badge badge-before" data-i18n="upscaling.badge_low">SNS Quality</span>
                         </div>
 
                         <!-- Slider Handle -->
@@ -179,7 +208,13 @@
                         </div>
                     </div>
                 </div>
-                <p class="comparison-note">※ スライダーを左右に動かして画質を比較できます</p>
+                <p class="comparison-note" data-i18n="upscaling.note">※ スライダーを左右に動かして画質を比較できます</p>
+                <div class="text-center mt-md">
+                    <a href="#plans" class="btn btn-primary btn-glow">
+                        <span class="btn-icon">✨</span>
+                        <span data-i18n="upscaling.btn">高画質プランを見る</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -188,7 +223,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">About</span>
+                <span class="section-tag" data-i18n="about.tag">About</span>
                 <h2 class="section-title" data-i18n="about.title">クリエイターについて</h2>
             </div>
             <div class="about-content">
@@ -226,262 +261,59 @@
                 <button class="filter-btn" data-filter="summer">Summer</button>
                 <button class="filter-btn" data-filter="night">Night</button>
             </div>
-            <div class="gallery-grid">
-                <!-- 1. Summer - サンセット -->
-                <div class="gallery-item glass-card" data-category="summer">
+            <div class="masonry-grid">
+                <!-- Item 1 -->
+                <div class="masonry-item">
                     <img src="images/gallery-1.png" alt="Sunset Paradise" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Sunset Paradise</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 2. Night - パーティー [LOCKED] -->
-                <div class="gallery-item glass-card locked" data-category="night">
+                <!-- Item 2 -->
+                <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="masonry-item vip-locked">
+                    <div class="vip-badge" data-i18n="gallery.vip_badge"><i class="fas fa-crown"></i> VIP Only</div>
                     <img src="images/gallery-2.png" alt="Cocktail Night" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="lock-icon-container">
-                            <span class="lock-icon">🔒</span>
-                            <span class="lock-text">Patreon Only</span>
-                            <span class="unlock-hint">Click to Unlock</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 3. Summer - ビーチ -->
-                <div class="gallery-item glass-card" data-category="summer">
+                </a>
+                <!-- Item 3 -->
+                <div class="masonry-item">
                     <img src="images/gallery-3.png" alt="Beach Beauty" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Beach Beauty</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 4. Summer - ビーチ -->
-                <div class="gallery-item glass-card" data-category="summer">
+                <!-- Item 4 -->
+                <div class="masonry-item">
                     <img src="images/gallery-4.png" alt="Ocean Dream" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Ocean Dream</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 5. Elegant - シルクドレス [LOCKED] -->
-                <div class="gallery-item glass-card locked" data-category="elegant">
+                <!-- Item 5-->
+                <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="masonry-item vip-locked">
+                    <div class="vip-badge" data-i18n="gallery.vip_badge"><i class="fas fa-crown"></i> VIP Only</div>
                     <img src="images/gallery-5.png" alt="Silk Elegance" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="lock-icon-container">
-                            <span class="lock-icon">🔒</span>
-                            <span class="lock-text">Patreon Only</span>
-                            <span class="unlock-hint">Click to Unlock</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 6. Night - オフィス -->
-                <div class="gallery-item glass-card" data-category="night">
+                </a>
+                <!-- Item 6 -->
+                <div class="masonry-item">
                     <img src="images/gallery-6.png" alt="Night Office" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Night Office</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 7. Night - ムーンライト -->
-                <div class="gallery-item glass-card" data-category="night">
+                <!-- Item 7 -->
+                <div class="masonry-item">
                     <img src="images/gallery-7.png" alt="Moonlight Dream" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Moonlight Dream</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 8. Elegant - 紫サテン [LOCKED] -->
-                <div class="gallery-item glass-card locked" data-category="elegant">
+                <!-- Item 9 -->
+                <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="masonry-item vip-locked">
+                    <div class="vip-badge" data-i18n="gallery.vip_badge"><i class="fas fa-crown"></i> VIP Only</div>
                     <img src="images/gallery-9.png" alt="Purple Satin" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="lock-icon-container">
-                            <span class="lock-icon">🔒</span>
-                            <span class="lock-text">Patreon Only</span>
-                            <span class="unlock-hint">Click to Unlock</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 9. Night - ネオン -->
-                <div class="gallery-item glass-card" data-category="night">
+                </a>
+                <!-- Item 10 -->
+                <div class="masonry-item">
                     <img src="images/gallery-10.png" alt="Neon Lights" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Neon Lights</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- ここから隠す (10枚目以降) -->
-                <!-- 10. Night - 夜景 -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
+                <!-- Item 11 -->
+                <div class="masonry-item">
                     <img src="images/gallery-11.png" alt="City Night" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">City Night</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
-                <!-- 11. Elegant - サテン -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
+                <!-- Item 12 -->
+                <div class="masonry-item">
                     <img src="images/gallery-12.png" alt="Satin Dreams" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Satin Dreams</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 14. Summer - ハンモック -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-15.png" alt="Tropical Hammock" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Tropical Hammock</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 15. Summer - ビーチタオル -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-16.png" alt="Beach Vibes" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Beach Vibes</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 16. Summer - 水しぶき -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-17.png" alt="Ocean Splash" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Ocean Splash</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 20. Elegant - グリッタードレス -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/gallery-21.png" alt="Glitter Dress" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Glitter Dress</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 21. Elegant - カジュアル -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/gallery-22.png" alt="Casual Chic" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Casual Chic</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 23. Summer - ビーチ -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-24.png" alt="Paradise Bay" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Paradise Bay</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 24. Summer - サンセット -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-25.png" alt="Sunset Glow" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Sunset Glow</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 25. Summer - ゴールドサンセット -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-26.png" alt="Golden Hour" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Golden Hour</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 26. Summer - トロピカル -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="summer">
-                    <img src="images/gallery-27.png" alt="Tropical Bloom" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Tropical Bloom</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 27. Elegant - ホワイトランジェリー -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/gallery-28.png" alt="White Lace" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">White Lace</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 29. Elegant - 階段 -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/gallery-30.png" alt="Stairway Grace" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Stairway Grace</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 30. Night - 月夜ビーチ -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
-                    <img src="images/gallery-31.png" alt="Midnight Beach" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Midnight Beach</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 31. Night - シルバービキニ月夜 -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
-                    <img src="images/gallery-32.png" alt="Silver Moon" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Silver Moon</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 32. Night - 月夜の海 -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
-                    <img src="images/gallery-33.png" alt="Moonlit Waters" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Moonlit Waters</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 33. Elegant - ワインレッド -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/gallery-34.png" alt="Wine Red" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Wine Red</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 34. Night - ブラックレース -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
-                    <img src="images/gallery-35.png" alt="Black Lace" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Black Lace</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 35. Night - ミラー -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="night">
-                    <img src="images/gallery-36.png" alt="Mirror Night" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Mirror Night</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 36. Elegant - ヒーローポートレート -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/hero-aile.png" alt="Aile Portrait" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Aile Portrait</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
-                </div>
-                <!-- 37. New - 20260121 -->
-                <div class="gallery-item glass-card gallery-hidden" data-category="elegant">
-                    <img src="images/20260121_1501_image.png" alt="New Arrival" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">New Arrival</span>
-                        <span class="gallery-zoom">🔍</span>
-                    </div>
                 </div>
             </div>
             <!-- もっと見るボタン -->
             <div class="gallery-show-more">
                 <button class="btn btn-secondary" id="show-more-btn">
-                    <span>もっと見る</span>
+                    <span data-i18n="gallery.btn_show_more">もっと見る</span>
                     <span class="btn-icon">↓</span>
                 </button>
             </div>
@@ -494,11 +326,33 @@
         </div>
     </section>
 
+    <!-- ショップセクション (New) -->
+    <section id="shop" class="shop-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="shop.tag">Shop</span>
+                <h2 class="section-title" data-i18n="shop.title">Digital Collections</h2>
+                <p class="section-subtitle" data-i18n="shop.subtitle">高画質写真集や限定コンテンツを販売中</p>
+                <!-- BOOTH Card (Centered) -->
+                <div class="shop-card">
+                    <div class="shop-icon booth">
+                        <svg viewBox="0 0 24 24" width="40" height="40">
+                            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                    </div>
+                    <h3>BOOTH</h3>
+                    <p data-i18n="shop.booth_desc">公式ショップで高解像度写真集や限定コンテンツを販売中。日本国内からの購入に最適です。</p>
+                    <a href="https://booth.pm/ja" target="_blank" class="shop-btn booth" data-i18n="shop.btn_visit">Visit Shop</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ライトボックスモーダル -->
     <div id="lightbox" class="lightbox" aria-hidden="true">
-        <button class="lightbox-close" aria-label="閉じる">&times;</button>
-        <button class="lightbox-prev" aria-label="前の画像">❮</button>
-        <button class="lightbox-next" aria-label="次の画像">❯</button>
+        <button class="lightbox-close" aria-label="閉じる" data-i18n-aria-label="aria.close">&times;</button>
+        <button class="lightbox-prev" aria-label="前の画像" data-i18n-aria-label="aria.prev">❮</button>
+        <button class="lightbox-next" aria-label="次の画像" data-i18n-aria-label="aria.next">❯</button>
         <div class="lightbox-content">
             <img src="" alt="" class="lightbox-image">
             <div class="lightbox-caption"></div>
@@ -516,7 +370,7 @@
                             d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.684 108.662 128.946 98.4405 129.507Z" />
                     </svg>
                 </button>
-                <button class="share-btn share-copy" aria-label="URLをコピー" data-platform="copy">
+                <button class="share-btn share-copy" aria-label="URLをコピー" data-i18n-aria-label="aria.copy" data-platform="copy">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
@@ -528,19 +382,19 @@
 
     <!-- 🔒 アンロックモーダル 🔒 -->
     <div id="unlock-modal" class="lightbox unlock-modal" aria-hidden="true">
-        <button class="lightbox-close cancel-unlock" aria-label="閉じる">&times;</button>
+        <button class="lightbox-close cancel-unlock" aria-label="閉じる" data-i18n-aria-label="aria.close">&times;</button>
         <div class="unlock-content glass-card">
-            <h3 class="unlock-title">Unlock Premium Content</h3>
-            <p class="unlock-desc">この作品の高画質版は<br>Patreonサポーター限定です</p>
+            <h3 class="unlock-title" data-i18n="unlock.title">Unlock Premium Content</h3>
+            <p class="unlock-desc" data-i18n="unlock.desc">この作品の高画質版は<br>Patreonサポーター限定です</p>
             <div class="unlock-benefits">
-                <span>✨ 4K/8K Ultra HD</span>
-                <span>💎 未公開アングル</span>
-                <span>🎁 プロンプト公開</span>
+                <span data-i18n="unlock.b1">✨ 4K/8K Ultra HD</span>
+                <span data-i18n="unlock.b2">💎 未公開アングル</span>
+                <span data-i18n="unlock.b3">🎁 プロンプト公開</span>
             </div>
-            <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-primary btn-glow">
+            <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-primary btn-glow" data-i18n="unlock.btn">
                 Patreonで解禁する →
             </a>
-            <button class="btn-text cancel-unlock">閉じる</button>
+            <button class="btn-text cancel-unlock" data-i18n="unlock.close">閉じる</button>
         </div>
     </div>
     </div>
@@ -549,41 +403,41 @@
     <section id="comparison" class="comparison">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Why Join?</span>
+                <span class="section-tag" data-i18n="comparison.tag">Why Join?</span>
                 <h2 class="section-title" data-i18n="comparison.title">会員限定のメリット</h2>
-                <p class="section-subtitle">サポーターになると、より深く幻想的な世界を楽しめます</p>
+                <p class="section-subtitle" data-i18n="comparison.subtitle">サポーターになると、より深く幻想的な世界を楽しめます</p>
             </div>
             <div class="comparison-table glass-card">
                 <div class="comparison-row header">
                     <div class="col-feature"></div>
-                    <div class="col-free">Free User</div>
-                    <div class="col-patreon">Patreon Supporter</div>
+                    <div class="col-free" data-i18n="comparison.col_free">Free User</div>
+                    <div class="col-patreon" data-i18n="comparison.col_patreon">Patreon Supporter</div>
                 </div>
                 <!-- Rows -->
                 <div class="comparison-row">
-                    <div class="col-feature">画質</div>
-                    <div class="col-free">標準 (Full HD)</div>
-                    <div class="col-patreon highlight">最高画質 (4K Ultra HD)</div>
+                    <div class="col-feature" data-i18n="comparison.quality">画質</div>
+                    <div class="col-free" data-i18n="comparison.quality_free">標準 (Full HD)</div>
+                    <div class="col-patreon highlight" data-i18n="comparison.quality_patreon">最高画質 (4K Ultra HD)</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="col-feature">ギャラリー閲覧</div>
-                    <div class="col-free">一部制限あり</div>
-                    <div class="col-patreon highlight">全作品アンロック 🔓</div>
+                    <div class="col-feature" data-i18n="comparison.gallery">ギャラリー閲覧</div>
+                    <div class="col-free" data-i18n="comparison.gallery_free">一部制限あり</div>
+                    <div class="col-patreon highlight" data-i18n="comparison.gallery_patreon">全作品アンロック 🔓</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="col-feature">ダウンロード</div>
-                    <div class="col-free">不可</div>
-                    <div class="col-patreon highlight">無制限</div>
+                    <div class="col-feature" data-i18n="comparison.download">ダウンロード</div>
+                    <div class="col-free" data-i18n="comparison.download_free">不可</div>
+                    <div class="col-patreon highlight" data-i18n="comparison.download_patreon">無制限</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="col-feature">限定コンテンツ</div>
-                    <div class="col-free">なし</div>
-                    <div class="col-patreon highlight">あり (未公開・差分)</div>
+                    <div class="col-feature" data-i18n="comparison.content">限定コンテンツ</div>
+                    <div class="col-free" data-i18n="comparison.content_free">なし</div>
+                    <div class="col-patreon highlight" data-i18n="comparison.content_patreon">あり (未公開・差分)</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="col-feature">リクエスト権</div>
-                    <div class="col-free">なし</div>
-                    <div class="col-patreon highlight">優先リクエスト</div>
+                    <div class="col-feature" data-i18n="comparison.request">リクエスト権</div>
+                    <div class="col-free" data-i18n="comparison.request_free">なし</div>
+                    <div class="col-patreon highlight" data-i18n="comparison.request_patreon">優先リクエスト</div>
                 </div>
             </div>
         </div>
@@ -593,7 +447,7 @@
     <section id="plans" class="plans">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Membership</span>
+                <span class="section-tag" data-i18n="plans.tag">Membership</span>
                 <h2 class="section-title" data-i18n="plans.title">サポータープラン</h2>
                 <p class="section-subtitle" data-i18n="plans.subtitle">あなたのサポートが創作の力になります</p>
             </div>
@@ -602,56 +456,56 @@
                 <div class="plan-card glass-card">
                     <div class="plan-header">
                         <span class="plan-badge">Tier 1</span>
-                        <h3 class="plan-name">Basic Support</h3>
-                        <p class="plan-price">¥500<span class="plan-period">/月</span></p>
+                        <h3 class="plan-name" data-i18n="plans.fan_name">Basic Support</h3>
+                        <p class="plan-price"><span data-i18n="plans.price_fan">¥500</span><span class="plan-period" data-i18n="plans.per_month">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li>
+                        <li data-i18n="plans.fan_f1">
                             <span class="check-icon">✓</span>
                             <span>高画質画像の閲覧 (Full HD)</span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.fan_f2">
                             <span class="check-icon">✓</span>
                             <span>過去のアーカイブ閲覧</span>
                         </li>
-                        <li class="disabled">
+                        <li class="disabled" data-i18n="plans.fan_f3">
                             <span class="check-icon">-</span>
                             <span>4K壁紙のダウンロード</span>
                         </li>
                     </ul>
-                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn">
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn" data-i18n="plans.btn_join">
                         Join Tier 1
                     </a>
                 </div>
 
                 <!-- Tier 2: クリエイタープラン (Popular) -->
                 <div class="plan-card glass-card popular">
-                    <div class="popular-tag">MOST POPULAR</div>
+                    <div class="popular-tag" data-i18n="plans.popular">MOST POPULAR</div>
                     <div class="plan-header">
                         <span class="plan-badge">Tier 2</span>
-                        <h3 class="plan-name">Creator Plan</h3>
-                        <p class="plan-price">¥1,000<span class="plan-period">/月</span></p>
+                        <h3 class="plan-name" data-i18n="plans.supporter_name">Creator Plan</h3>
+                        <p class="plan-price"><span data-i18n="plans.price_supporter">¥1,000</span><span class="plan-period" data-i18n="plans.per_month">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li>
+                        <li data-i18n="plans.sup_f1">
                             <span class="check-icon">✓</span>
                             <span><strong>Tier 1 の全特典</strong></span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.sup_f2">
                             <span class="check-icon">✓</span>
                             <span><strong>4K Ultra HD 壁紙</strong></span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.sup_f3">
                             <span class="check-icon">✓</span>
                             <span><strong>プロンプト(呪文)公開</strong></span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.sup_f4">
                             <span class="check-icon">✓</span>
                             <span>生成テクニック解説</span>
                         </li>
                     </ul>
                     <a href="https://www.patreon.com/aile_bellezza" target="_blank"
-                        class="btn btn-primary btn-glow plan-btn">
+                        class="btn btn-primary btn-glow plan-btn" data-i18n="plans.btn_join">
                         Join Tier 2
                     </a>
                 </div>
@@ -660,28 +514,28 @@
                 <div class="plan-card glass-card">
                     <div class="plan-header">
                         <span class="plan-badge">Tier 3</span>
-                        <h3 class="plan-name">VIP Access</h3>
-                        <p class="plan-price">¥3,000<span class="plan-period">/月</span></p>
+                        <h3 class="plan-name" data-i18n="plans.vip_name">VIP Access</h3>
+                        <p class="plan-price"><span data-i18n="plans.price_vip">¥3,000</span><span class="plan-period" data-i18n="plans.per_month">/月</span></p>
                     </div>
                     <ul class="plan-features">
-                        <li>
+                        <li data-i18n="plans.vip_f1">
                             <span class="check-icon">✓</span>
                             <span><strong>Tier 2 の全特典</strong></span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.vip_f2">
                             <span class="check-icon">✓</span>
                             <span><strong>限定動画コンテンツ</strong></span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.vip_f3">
                             <span class="check-icon">✓</span>
                             <span>優先リクエスト権</span>
                         </li>
-                        <li>
+                        <li data-i18n="plans.vip_f4">
                             <span class="check-icon">✓</span>
                             <span>未公開の差分セット</span>
                         </li>
                     </ul>
-                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn">
+                    <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="btn btn-secondary plan-btn" data-i18n="plans.btn_join_vip">
                         Join Tier 3
                     </a>
                 </div>
@@ -710,25 +564,25 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">FAQ</span>
-                <h2 class="section-title">よくある質問</h2>
-                <p class="section-subtitle">サービスや特典に関するご質問にお答えします</p>
+                <h2 class="section-title" data-i18n="faq.title">よくある質問</h2>
+                <p class="section-subtitle" data-i18n="faq.subtitle">サービスや特典に関するご質問にお答えします</p>
             </div>
             <div class="faq-grid">
                 <div class="faq-item glass-card">
-                    <h3 class="faq-question">高画質画像はどのようにダウンロードできますか？</h3>
-                    <p class="faq-answer">Patreonの対象ティア（Tier 2以上）にご入会いただくと、投稿ごとに用意された高画質版（4K/8K）のダウンロードリンクをご利用いただけます。</p>
+                    <h3 class="faq-question" data-i18n="faq.q1">高画質画像はどのようにダウンロードできますか？</h3>
+                    <p class="faq-answer" data-i18n="faq.a1">Patreonの対象ティア（Tier 2以上）にご入会いただくと、投稿ごとに用意された高画質版（4K/8K）のダウンロードリンクをご利用いただけます。</p>
                 </div>
                 <div class="faq-item glass-card">
-                    <h3 class="faq-question">SNSのアイコンやヘッダーに使用してもいいですか？</h3>
-                    <p class="faq-answer">はい、個人のSNSでのご利用は歓迎しています。その際、プロフィール等に当サイトへのリンクやクレジット（@aile_bellezza）を記載いただけると大変励みになります。</p>
+                    <h3 class="faq-question" data-i18n="faq.q2">SNSのアイコンやヘッダーに使用してもいいですか？</h3>
+                    <p class="faq-answer" data-i18n="faq.a2">はい、個人のSNSでのご利用は歓迎しています。その際、プロフィール等に当サイトへのリンクやクレジット（@aile_bellezza）を記載いただけると大変励みになります。</p>
                 </div>
                 <div class="faq-item glass-card">
-                    <h3 class="faq-question">支払い方法には何がありますか？</h3>
-                    <p class="faq-answer">Patreonでは、クレジットカード、PayPal、Apple Pay、Google Payなど、主要な決済方法に対応しています。</p>
+                    <h3 class="faq-question" data-i18n="faq.q3">支払い方法には何がありますか？</h3>
+                    <p class="faq-answer" data-i18n="faq.a3">Patreonでは、クレジットカード、PayPal、Apple Pay、Google Payなど、主要な決済方法に対応しています。</p>
                 </div>
                 <div class="faq-item glass-card">
-                    <h3 class="faq-question">特定のシチュエーションやキャラのリクエストは可能ですか？</h3>
-                    <p class="faq-answer">Tier 3（VIP Access）のサポーター様限定で、優先リクエストを受け付けております。詳細はPatreon経由のメッセージで調整させていただきます。</p>
+                    <h3 class="faq-question" data-i18n="faq.q4">特定のシチュエーションやキャラのリクエストは可能ですか？</h3>
+                    <p class="faq-answer" data-i18n="faq.a4">Tier 3（VIP Access）のサポーター様限定で、優先リクエストを受け付けております。詳細はPatreon経由のメッセージで調整させていただきます。</p>
                 </div>
             </div>
         </div>
@@ -739,8 +593,8 @@
         <div class="container">
             <div class="newsletter-content glass-card">
                 <div class="newsletter-text">
-                    <h3 class="newsletter-title">🎁 Free 4K Wallpaper</h3>
-                    <p class="newsletter-description">
+                    <h3 class="newsletter-title" data-i18n="newsletter.title">🎁 Free 4K Wallpaper</h3>
+                    <p class="newsletter-description" data-i18n="newsletter.desc">
                         今すぐ登録して、限定4K壁紙を<br>無料ダウンロードしよう！
                     </p>
                 </div>
@@ -749,13 +603,13 @@
                     <!-- 登録完了後のリダイレクト先（サンクスページ） -->
                     <input type="hidden" name="_next" value="https://aile-bellezza.github.io/ai-beauty/thanks.html">
 
-                    <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
+                    <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" data-i18n-placeholder="newsletter.placeholder" required>
                     <button type="submit" class="btn btn-primary newsletter-btn btn-glow">
                         <span class="btn-icon">✨</span>
-                        Get Free Gift
+                        <span data-i18n="newsletter.btn">Get Free Gift</span>
                     </button>
                 </form>
-                <p class="newsletter-success" style="display: none; color: #4ade80; margin-top: 1rem;">
+                <p class="newsletter-success" style="display: none; color: #4ade80; margin-top: 1rem;" data-i18n="newsletter.success">
                     ✓ 登録ありがとうございます！
                 </p>
             </div>
@@ -767,7 +621,7 @@
     <!-- フローティングCTA -->
     <a href="https://www.patreon.com/aile_bellezza" target="_blank" class="floating-cta">
         <span class="floating-icon">🔓</span>
-        <span class="floating-text">Unlock Full Gallery</span>
+        <span class="floating-text" data-i18n="floating.unlock">Unlock Full Gallery</span>
     </a>
 
     <!-- フッター -->
@@ -780,7 +634,7 @@
                     <p>AI Image Creator</p>
                 </div>
                 <div class="footer-links">
-                    <a href="https://www.patreon.com/c/aile_bellezza" target="_blank">Support</a>
+                    <a href="https://www.patreon.com/c/aile_bellezza" target="_blank" data-i18n="footer.support">Support</a>
                     <a href="https://www.instagram.com/aile_bellezza/?locale=ja_JP" target="_blank">Instagram</a>
                     <a href="https://www.threads.net/@take_ai_le?hl=ja" target="_blank">Threads</a>
                 </div>
@@ -795,22 +649,22 @@
     <div class="cart-overlay"></div>
     <div class="cart-drawer">
         <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button class="cart-close" aria-label="閉じる">&times;</button>
+            <h3 data-i18n="cart.title">Shopping Cart</h3>
+            <button class="cart-close" aria-label="閉じる" data-i18n-aria-label="aria.close">&times;</button>
         </div>
         <div class="cart-items">
             <!-- カートアイテムはここに動的に追加されます -->
             <div class="empty-cart">
-                <p>カートは空です</p>
-                <button class="btn btn-secondary continue-shopping">買い物を続ける</button>
+                <p data-i18n="cart.empty">カートは空です</p>
+                <button class="btn btn-secondary continue-shopping" data-i18n="cart.continue">買い物を続ける</button>
             </div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span>Box Total:</span>
+                <span data-i18n="cart.total">Box Total:</span>
                 <span class="total-amount">$0</span>
             </div>
-            <button class="btn btn-primary checkout-btn">Checkout</button>
+            <button class="btn btn-primary checkout-btn" data-i18n="cart.checkout">Checkout</button>
         </div>
     </div>
 
